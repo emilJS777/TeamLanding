@@ -763,20 +763,28 @@ onBeforeUnmount(() => {
           <div class="profile-body">
             <div class="profile-main">
               <section><h3>About</h3><p>{{ selectedMember.about }}</p></section>
-              <section><h3>Experience</h3><div class="timeline">
+              <section v-if="selectedMember.experience?.length"><h3>Experience</h3><div class="timeline">
                 <div v-for="item in selectedMember.experience" :key="item.period + item.company" class="timeline-item">
                   <span>{{ item.period }}</span><div><h4>{{ item.position }}</h4><strong>{{ item.company }}</strong><p>{{ item.description }}</p></div>
                 </div>
               </div></section>
-              <section><h3>Selected projects</h3><div class="profile-projects">
+              <section v-if="selectedMember.education?.length"><h3>Education</h3><div class="profile-education">
+                <article v-for="item in selectedMember.education" :key="item.degree + item.institution">
+                  <span>{{ item.period }}</span><div><h4>{{ item.degree }}</h4><strong>{{ item.institution }}</strong><p>{{ item.location }}</p></div>
+                </article>
+              </div></section>
+              <section v-if="selectedMember.projects?.length"><h3>Selected projects</h3><div class="profile-projects">
                 <a v-for="project in selectedMember.projects" :key="project.name" :href="project.url" target="_blank" rel="noopener"><span>↗</span><div><strong>{{ project.name }}</strong><small>{{ project.description }}</small></div></a>
+              </div></section>
+              <section v-if="selectedMember.selectedExperience?.length"><h3>Selected experience</h3><div class="profile-projects">
+                <article v-for="item in selectedMember.selectedExperience" :key="item.name" class="profile-project"><span>◇</span><div><strong>{{ item.name }}</strong><small>{{ item.description }}</small></div></article>
               </div></section>
             </div>
             <aside class="profile-aside">
-              <section><h3>Expertise</h3><div class="tag-list tag-list--profile"><span v-for="technology in selectedMember.technologies" :key="technology">{{ technology }}</span></div></section>
-              <section><h3>Languages</h3><ul><li v-for="language in selectedMember.languages" :key="language">{{ language }}</li></ul></section>
-              <section><h3>Links</h3><div class="profile-links"><a v-if="selectedMember.github" :href="selectedMember.github" target="_blank">GitHub ↗</a><a v-if="selectedMember.linkedin" :href="selectedMember.linkedin" target="_blank">LinkedIn ↗</a></div></section>
-              <a class="button button--primary button--full" :href="selectedMember.resume" target="_blank">View full resume <span>↗</span></a>
+              <section v-if="selectedMember.technologies?.length"><h3>Expertise</h3><div class="tag-list tag-list--profile"><span v-for="technology in selectedMember.technologies" :key="technology">{{ technology }}</span></div></section>
+              <section v-if="selectedMember.languages?.length"><h3>Languages</h3><ul><li v-for="language in selectedMember.languages" :key="language">{{ language }}</li></ul></section>
+              <section v-if="selectedMember.github || selectedMember.linkedin"><h3>Links</h3><div class="profile-links"><a v-if="selectedMember.github" :href="selectedMember.github" target="_blank" rel="noopener">GitHub ↗</a><a v-if="selectedMember.linkedin" :href="selectedMember.linkedin" target="_blank" rel="noopener">LinkedIn ↗</a></div></section>
+              <a v-if="selectedMember.resume" class="button button--primary button--full" :href="selectedMember.resume" target="_blank" rel="noopener">View full resume <span>↗</span></a>
             </aside>
           </div>
         </section>
