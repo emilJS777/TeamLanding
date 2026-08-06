@@ -784,7 +784,7 @@ onBeforeUnmount(() => {
               <section v-if="selectedMember.technologies?.length"><h3>Expertise</h3><div class="tag-list tag-list--profile"><span v-for="technology in selectedMember.technologies" :key="technology">{{ technology }}</span></div></section>
               <section v-if="selectedMember.languages?.length"><h3>Languages</h3><ul><li v-for="language in selectedMember.languages" :key="language">{{ language }}</li></ul></section>
               <section v-if="selectedMember.github || selectedMember.linkedin"><h3>Links</h3><div class="profile-links"><a v-if="selectedMember.github" :href="selectedMember.github" target="_blank" rel="noopener">GitHub ↗</a><a v-if="selectedMember.linkedin" :href="selectedMember.linkedin" target="_blank" rel="noopener">LinkedIn ↗</a></div></section>
-              <a v-if="selectedMember.resume" class="button button--primary button--full" :href="selectedMember.resume" target="_blank" rel="noopener">View full resume <span>↗</span></a>
+<!--              <a v-if="selectedMember.resume" class="button button&#45;&#45;primary button&#45;&#45;full" :href="selectedMember.resume" target="_blank" rel="noopener">View full resume <span>↗</span></a>-->
             </aside>
           </div>
         </section>
