@@ -10,7 +10,7 @@ const products = [
     number: '01',
     title: 'Custody Infrastructure',
     description: 'Multi-chain wallets, transaction processing, scanners, webhooks and approval workflows for digital-asset products.',
-    tags: ['EVM', 'TRON', 'TON', 'Bitcoin'],
+    tags: ['.NET', 'Vue.js', 'Multichain integration'],
     url: 'https://custody.deneon.net',
     icon: 'vault'
   },
