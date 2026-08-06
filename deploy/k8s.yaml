@@ -11,6 +11,23 @@ metadata:
   name: team-landing-nginx
   namespace: team-landing
 data:
+  nginx.conf: |
+    worker_processes auto;
+    pid /tmp/nginx.pid;
+    error_log /dev/stderr notice;
+
+    events {
+      worker_connections 256;
+    }
+
+    http {
+      include /etc/nginx/mime.types;
+      default_type application/octet-stream;
+      access_log /dev/stdout;
+      sendfile on;
+      keepalive_timeout 65;
+      include /etc/nginx/conf.d/*.conf;
+    }
   default.conf: |
     server {
       listen 8080;
@@ -64,7 +81,7 @@ spec:
         - name: nginx
           image: nginx:1.28-alpine
           imagePullPolicy: IfNotPresent
-          command: ["nginx", "-g", "daemon off; pid /tmp/nginx.pid;"]
+          command: ["nginx", "-g", "daemon off;"]
           ports:
             - name: http
               containerPort: 8080
@@ -102,6 +119,10 @@ spec:
           volumeMounts:
             - name: site
               mountPath: /srv/site
+              readOnly: true
+            - name: nginx-config
+              mountPath: /etc/nginx/nginx.conf
+              subPath: nginx.conf
               readOnly: true
             - name: nginx-config
               mountPath: /etc/nginx/conf.d/default.conf
@@ -175,4 +196,3 @@ spec:
     - hosts:
         - team.deneon.net
       secretName: team-landing-tls
-
