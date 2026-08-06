@@ -3,7 +3,7 @@ export const team = [
     id: 'emil-hambardzumyan',
     name: 'Emil Hambardzumyan',
     role: 'Full-Stack & Blockchain Developer',
-    image: 'https://i.imgur.com/8O1ppQ5.png',
+    image: 'https://i.imgur.com/7P0d8D8.png',
     summary:
       'Backend and full-stack developer experienced in building production-grade financial, blockchain and Web3 products with Python, .NET and Vue.js.',
     about:
