@@ -3,7 +3,7 @@ export const team = [
     id: 'emil-hambardzumyan',
     name: 'Emil Hambardzumyan',
     role: 'Full-Stack & Blockchain Developer',
-    image: 'https://i.imgur.com/7P0d8D8.png',
+    image: 'https://i.imgur.com/sJO1b1u.png',
     summary:
       'Backend and full-stack developer experienced in building production-grade financial, blockchain and Web3 products with Python, .NET and Vue.js.',
     about:
@@ -61,7 +61,7 @@ export const team = [
     id: 'artur-kamalyan',
     name: 'Artur Kamalyan',
     role: 'Backend .NET Engineer',
-    image: '/images/team/artur-kamalyan-placeholder.svg',
+    image: 'https://i.imgur.com/yPDmRvA.png',
     summary:
       'Backend .NET Engineer with 6+ years of experience building scalable APIs, enterprise applications and data-intensive backend services with C# and ASP.NET Core.',
     about:
