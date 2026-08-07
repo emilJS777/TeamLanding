@@ -53,7 +53,7 @@ export const team = [
       }
     ],
     languages: ['Armenian — Native', 'Russian — Fluent', 'English — Technical working proficiency'],
-    linkedin: '',
+    linkedin: 'https://www.linkedin.com/in/emil-hambardzumyan-989519235/',
     github: 'https://github.com/emilJS777',
     resume: 'https://emil.deneon.net/'
   },
