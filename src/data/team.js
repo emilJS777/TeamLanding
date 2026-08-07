@@ -136,5 +136,273 @@ export const team = [
       }
     ],
     languages: ['Armenian - Native', 'English - Advanced', 'Russian - Advanced']
+  },
+  {
+    id: 'harutyun-navasardyan',
+    name: 'Harutyun Navasardyan',
+    role: 'QA Engineer',
+    image: 'https://i.imgur.com/6BRkfIA.png',
+    imageAlt: 'Harutyun Navasardyan - QA Engineer',
+    imageFallback: '/images/team/harutyun-navasardyan-placeholder.svg',
+    summary:
+      'QA Engineer experienced in manual, functional, regression and API testing across web, Android and iOS products.',
+    about:
+      'Detail-oriented QA Engineer experienced in manual testing, API testing and functional validation across web, Android and iOS platforms. Skilled in test planning, test-case design, defect reporting, UX evaluation and collaboration with cross-functional product teams. Focused on product quality, usability and reliable software delivery.',
+    expertiseGroups: [
+      {
+        name: 'Testing',
+        skills: ['Manual Testing', 'Functional Testing', 'Regression Testing', 'Game Testing', 'UX/UI Evaluation']
+      },
+      {
+        name: 'API & Platforms',
+        skills: ['Postman', 'API Testing', 'Web', 'Android', 'iOS']
+      },
+      {
+        name: 'QA Process',
+        skills: ['Test Planning', 'Test Case Design', 'Defect Tracking', 'Bug Reporting', 'QA Documentation', 'SDLC', 'STLC']
+      },
+      {
+        name: 'Methodologies',
+        skills: ['Agile/Scrum', 'Kanban']
+      },
+      {
+        name: 'Currently Learning',
+        skills: ['Java - Currently learning', 'Selenium - Currently learning']
+      },
+      {
+        name: 'Additional',
+        skills: ['AI Tools and AI Agents in QA workflows']
+      }
+    ],
+    experience: [
+      {
+        period: 'September 2025 - Present',
+        company: 'Partao',
+        position: 'Mid QA Engineer',
+        description:
+          'Creates and executes test cases for web, Android and iOS applications. Performs API testing with Postman, validates requests, responses and system behavior, participates in product discussions, reviews technical documentation and prepares QA reports.'
+      },
+      {
+        period: 'July 2022 - May 2026',
+        company: 'MarktGuru',
+        position: 'Mid QA Engineer',
+        description:
+          'Designed and executed test cases for web, Android and iOS products. Conducted API testing with Postman, validated endpoints, payloads and response codes, participated in product planning, reviewed technical designs and prepared reports for management.'
+      },
+      {
+        period: 'April 2019 - July 2022',
+        company: 'Testlio',
+        position: 'QA Engineer',
+        description:
+          'Performed functional, regression and usability testing across multiple web, Android and iOS projects. Designed and executed test cases and provided recommendations for improving user experience and software quality.'
+      },
+      {
+        period: '2016 - 2021',
+        company: 'MarktGuru',
+        position: 'Data Input Specialist',
+        description:
+          'Worked on the digitalization and tagging of structured information using verified values.'
+      }
+    ],
+    education: [
+      {
+        degree: "Bachelor's Degree in Computer Science and Statistics",
+        institution: 'Armenian State University of Economics',
+        period: 'Class of 2012'
+      }
+    ],
+    selectedExperienceTitle: 'Testing Experience',
+    selectedExperience: [
+      {
+        name: 'Cross-Platform Product Testing',
+        description: 'Manual, functional, regression and usability testing across web, Android and iOS applications.'
+      },
+      {
+        name: 'API Validation',
+        description: 'Testing REST API requests, responses, endpoints, payloads and response codes using Postman.'
+      },
+      {
+        name: 'Test Planning and Documentation',
+        description: 'Test-case design, QA documentation review, defect reporting and preparation of structured quality reports.'
+      },
+      {
+        name: 'Product Quality and UX',
+        description: 'Participation in product discussions and evaluation of usability and user experience across different platforms.'
+      }
+    ]
+  },
+  {
+    id: 'argam-torozyan',
+    name: 'Argam Torozyan',
+    role: 'Senior QA Engineer',
+    image: 'https://i.imgur.com/5STUgeb.png',
+    imageAlt: 'Argam Torozyan — Senior QA Engineer',
+    imageFallback: '/images/team/argam-torozyan-placeholder.svg',
+    summary:
+      'Senior QA engineer with 12+ years of experience across mobile, web and backend products, specializing in release quality, regression strategy, API testing and production validation.',
+    about:
+      'Argam is a senior quality assurance engineer with more than 12 years of experience testing mobile, web and backend products. He focuses on release reliability, functional and exploratory testing, regression strategy, compatibility coverage, API validation and production monitoring. He has worked across distributed product teams and high-frequency release environments.',
+    cardTags: ['Mobile QA', 'API Testing', 'Release Validation', 'Regression Testing'],
+    expertiseGroups: [
+      {
+        name: 'Core expertise',
+        skills: [
+          'Functional and exploratory testing', 'Regression and compatibility testing',
+          'Mobile testing for iOS and Android', 'Web and backend product testing',
+          'API testing', 'Requirement analysis', 'Release validation',
+          'Root cause analysis', 'MySQL database testing', 'Production monitoring',
+          'QA automation strategy', 'AI tools, AI agents and QA automation workflows'
+        ]
+      },
+      {
+        name: 'Tools',
+        skills: [
+          'Postman', 'Swagger', 'Kibana', 'Elastic', 'Mixpanel', 'GA4',
+          'Xcode', 'Android Studio', 'Charles Proxy', 'Jira', 'Monday.com', 'MySQL'
+        ]
+      }
+    ],
+    experience: [
+      {
+        period: 'Oct 2023 - Jun 2026',
+        company: 'MarktGuru Armenia',
+        position: 'Lead QA Specialist',
+        description:
+          'Coordinated quality assurance across iOS, Android and backend product squads. Supported weekly production releases and structured release validation. Helped reduce major production incidents through shift-left QA practices. Reduced manual regression time from approximately one day to under two hours by improving test priorities and automation coverage. Worked on automation strategy, root cause analysis and production monitoring. Used Kibana, Elastic, Mixpanel and GA4 for post-release and analytics validation.'
+      },
+      {
+        period: 'Feb 2020 - Oct 2023',
+        company: 'MarktGuru Armenia',
+        position: 'Quality Assurance Engineer',
+        description:
+          'Performed end-to-end testing across iOS, Android and backend products. Maintained functional, regression and compatibility test suites. Coordinated release validation with product and engineering teams. Investigated production issues through monitoring and log analysis.'
+      },
+      {
+        period: 'Jul 2016 - Feb 2020',
+        company: 'Smart Hex',
+        position: 'Quality Assurance Engineer',
+        description:
+          'Tested mobile and web applications. Managed compatibility coverage across devices, operating systems and screen sizes. Participated in Agile ceremonies, client demonstrations and release validation.'
+      },
+      {
+        period: 'Nov 2015 - Present',
+        company: 'Testlio',
+        position: 'Quality Assurance Engineer — Freelance / Hourly',
+        description:
+          'Performs functional and exploratory testing for international mobile and web products. Reports and validates defects in distributed, asynchronous environments.'
+      },
+      {
+        period: 'Sep 2013 - Jul 2016',
+        company: 'Instigate Mobile',
+        position: 'Quality Assurance Analyst',
+        description:
+          'Specialized in iOS and Android application testing. Created test documentation, regression suites and release-validation processes. Coordinated functional testing and supported junior QA specialists.'
+      }
+    ],
+    education: [
+      {
+        degree: "Bachelor's Degree",
+        institution: 'Goris State University — Faculty of Electronics and Energy',
+        period: '2009 - 2015'
+      }
+    ],
+    languages: ['Armenian — Native', 'Russian — Professional', 'English — Professional'],
+    linkedin: 'https://linkedin.com/in/argam-torozyan-35b471109',
+    resumeLabel: 'Download CV'
+  },
+  {
+    id: 'taron-gevorgyan',
+    name: 'Taron Gevorgyan',
+    role: 'Senior Backend Engineer',
+    image: 'https://i.imgur.com/i5GiSzA.png',
+    imageAlt: 'Taron Gevorgyan — Senior Backend Engineer',
+    imageFallback: '/images/team/taron-gevorgyan-placeholder.svg',
+    summary:
+      'Backend and distributed-systems engineer with 15+ years of experience building scalable platforms, high-performance services and maintainable enterprise applications.',
+    about:
+      'Taron is a senior backend and distributed-systems engineer with more than 15 years of software development experience. He specializes in designing reliable and scalable platforms using Java, Spring, domain-driven design, event-driven architecture, relational and non-relational databases, cloud infrastructure and automated delivery pipelines. His background includes authentication platforms, billing systems, financial analytics, monitoring SaaS products and high-performance enterprise applications.',
+    cardTags: ['Java', 'Spring Boot', 'Distributed Systems', 'Cloud Architecture'],
+    expertiseGroups: [
+      {
+        name: 'Core expertise',
+        skills: [
+          'Backend architecture', 'Java and Spring development', 'Domain-Driven Design',
+          'Event-Driven Architecture', 'Microservices', 'Distributed systems',
+          'REST API design', 'Authentication and authorization', 'Performance optimization',
+          'Caching strategies', 'Relational and non-relational databases',
+          'Cloud infrastructure', 'CI/CD pipelines', 'Test-Driven Development',
+          'Behavior-Driven Development'
+        ]
+      },
+      {
+        name: 'Languages',
+        skills: ['Java', 'Python', 'JavaScript', 'TypeScript', 'SQL']
+      },
+      {
+        name: 'Frameworks & backend',
+        skills: [
+          'Spring Core', 'Spring Boot', 'Spring Security', 'Spring Data', 'Quarkus',
+          'Hibernate', 'Keycloak', 'Apache Kafka', 'RabbitMQ'
+        ]
+      },
+      {
+        name: 'Cloud & infrastructure',
+        skills: ['AWS', 'GCP', 'Docker', 'Kubernetes', 'Terraform', 'Jenkins', 'Nginx', 'CI/CD']
+      },
+      {
+        name: 'Databases & storage',
+        skills: ['PostgreSQL', 'MySQL', 'Oracle', 'MongoDB', 'FoundationDB', 'Redis', 'Elasticsearch']
+      },
+      {
+        name: 'Monitoring & testing',
+        skills: ['Kibana', 'Grafana', 'Logstash', 'Prometheus', 'JUnit', 'Mockito', 'TestNG']
+      }
+    ],
+    experience: [
+      {
+        period: 'Jun 2024 - Present',
+        company: 'Polixis',
+        position: 'Senior Software Engineer / Team Lead',
+        description:
+          'Integrated Keycloak with a custom user-management platform to provide secure SSO for multiple internal applications. Architected a scalable user-management platform supporting more than 10,000 users. Improved authentication response times by approximately 3x through architecture, caching and data-flow optimization. Integrated the authentication platform with multiple internal systems.'
+      },
+      {
+        period: 'Feb 2022 - May 2024',
+        company: 'Ultralabs',
+        position: 'Senior Software Engineer / Team Lead',
+        description:
+          'Worked on engineering processes, system architecture and delivery across a software-development team. Introduced Domain-Driven Design and comprehensive integration-testing practices. Helped reduce production defects to nearly zero. Improved collaboration and shortened stakeholder feedback cycles. Created and maintained CI/CD pipelines with a reported 99.9% deployment success rate.'
+      },
+      {
+        period: 'Apr 2018 - Feb 2022',
+        company: 'VMware',
+        position: 'Senior Software Engineer / Team Lead',
+        description:
+          'Designed a flexible billing-system architecture supporting multiple dynamic billing formulas. Developed tools for simulating customer environments, real-world data and high-load scenarios. Supported development and testing environments for a monitoring SaaS platform. Provided technical support and guidance across teams involving approximately 40 engineers.'
+      },
+      {
+        period: 'Aug 2016 - Apr 2018',
+        company: 'Deloitte Audit Analytics',
+        position: 'Senior Software Engineer',
+        description:
+          'Developed financial calculation tools for securities management. Refactored more than 500,000 lines of legacy code and integrated new data models. Designed and supported a platform for managing investments, funds and loans. Improved database performance, with some SQL queries becoming 10–20 times faster.'
+      },
+      {
+        period: 'Jul 2009 - Jul 2016',
+        company: 'Various Companies',
+        position: 'Software Engineer',
+        description:
+          'Worked on web, desktop and mobile applications. Developed experience in Delphi, Java, database management and object-oriented programming.'
+      }
+    ],
+    education: [
+      {
+        degree: "Bachelor's Degree in Informatics and Applied Mathematics",
+        institution: 'Yerevan State University',
+        period: 'Class of 2012'
+      }
+    ],
+    linkedin: 'https://linkedin.com/in/taron-gevorgyan-403a626b',
+    resumeLabel: 'Download CV'
   }
 ]

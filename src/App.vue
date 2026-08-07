@@ -1,9 +1,11 @@
 <script setup>
-import { onBeforeUnmount, onMounted, ref, watch } from 'vue'
+import { nextTick, onBeforeUnmount, onMounted, ref, watch } from 'vue'
 import { team } from './data/team'
 
 const selectedMember = ref(null)
 const mobileMenuOpen = ref(false)
+const profileModal = ref(null)
+let lastFocusedElement = null
 
 const products = [
   {
@@ -41,6 +43,7 @@ const capabilities = [
 ]
 
 function openProfile(member) {
+  if (document.activeElement instanceof HTMLElement) lastFocusedElement = document.activeElement
   selectedMember.value = member
 }
 
@@ -48,12 +51,37 @@ function closeProfile() {
   selectedMember.value = null
 }
 
+function handleMemberImageError(event, member) {
+  const image = event.currentTarget
+  if (!member.imageFallback || image.dataset.fallbackApplied) return
+  image.dataset.fallbackApplied = 'true'
+  image.src = member.imageFallback
+}
+
 function onKeydown(event) {
   if (event.key === 'Escape') closeProfile()
 }
 
-watch(selectedMember, (member) => {
+function trapModalFocus(event) {
+  if (event.key !== 'Tab') return
+  const focusable = [...event.currentTarget.querySelectorAll('a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])')]
+  if (!focusable.length) return
+  const first = focusable[0]
+  const last = focusable[focusable.length - 1]
+  if (event.shiftKey && (document.activeElement === first || document.activeElement === event.currentTarget)) {
+    event.preventDefault()
+    last.focus()
+  } else if (!event.shiftKey && document.activeElement === last) {
+    event.preventDefault()
+    first.focus()
+  }
+}
+
+watch(selectedMember, async (member) => {
   document.body.classList.toggle('modal-open', Boolean(member))
+  await nextTick()
+  if (member) profileModal.value?.querySelector('.modal-close')?.focus()
+  else lastFocusedElement?.focus()
 })
 
 onMounted(() => window.addEventListener('keydown', onKeydown))
@@ -708,12 +736,13 @@ onBeforeUnmount(() => {
         </div>
 
         <div class="team-grid">
-          <article v-for="member in team" :key="member.id" class="member-card" @click="openProfile(member)">
-            <div class="member-image"><img :src="member.image" :alt="member.name" /></div>
+          <article v-for="member in team" :key="member.id" class="member-card" role="button" tabindex="0" :aria-label="`View ${member.name} profile`" @click="openProfile(member)" @keydown.enter.self="openProfile(member)" @keydown.space.prevent.self="openProfile(member)">
+            <div class="member-image"><img :src="member.image" :alt="member.imageAlt || member.name" loading="lazy" @error="handleMemberImageError($event, member)" /></div>
             <div class="member-content">
               <p class="member-role">{{ member.role }}</p>
               <h3>{{ member.name }}</h3>
               <p>{{ member.summary }}</p>
+              <div v-if="member.cardTags?.length" class="member-tags"><span v-for="tag in member.cardTags" :key="tag">{{ tag }}</span></div>
               <button type="button" @click.stop="openProfile(member)">View profile <span>→</span></button>
             </div>
           </article>
@@ -754,11 +783,11 @@ onBeforeUnmount(() => {
 
     <Transition name="modal">
       <div v-if="selectedMember" class="modal-backdrop" role="presentation" @mousedown.self="closeProfile">
-        <section class="profile-modal" role="dialog" aria-modal="true" :aria-label="`${selectedMember.name} profile`">
+        <section ref="profileModal" class="profile-modal" role="dialog" aria-modal="true" :aria-labelledby="`${selectedMember.id}-profile-title`" tabindex="-1" @keydown="trapModalFocus">
           <button class="modal-close" type="button" aria-label="Close profile" @click="closeProfile">×</button>
           <div class="profile-header">
-            <img :src="selectedMember.image" :alt="selectedMember.name" />
-            <div><p class="member-role">{{ selectedMember.role }}</p><h2>{{ selectedMember.name }}</h2><p>{{ selectedMember.summary }}</p></div>
+            <img :src="selectedMember.image" :alt="selectedMember.imageAlt || selectedMember.name" @error="handleMemberImageError($event, selectedMember)" />
+            <div><p class="member-role">{{ selectedMember.role }}</p><h2 :id="`${selectedMember.id}-profile-title`">{{ selectedMember.name }}</h2><p>{{ selectedMember.summary }}</p></div>
           </div>
           <div class="profile-body">
             <div class="profile-main">
@@ -770,21 +799,24 @@ onBeforeUnmount(() => {
               </div></section>
               <section v-if="selectedMember.education?.length"><h3>Education</h3><div class="profile-education">
                 <article v-for="item in selectedMember.education" :key="item.degree + item.institution">
-                  <span>{{ item.period }}</span><div><h4>{{ item.degree }}</h4><strong>{{ item.institution }}</strong><p>{{ item.location }}</p></div>
+                  <span>{{ item.period }}</span><div><h4>{{ item.degree }}</h4><strong>{{ item.institution }}</strong><p v-if="item.location">{{ item.location }}</p></div>
                 </article>
               </div></section>
               <section v-if="selectedMember.projects?.length"><h3>Selected projects</h3><div class="profile-projects">
                 <a v-for="project in selectedMember.projects" :key="project.name" :href="project.url" target="_blank" rel="noopener"><span>↗</span><div><strong>{{ project.name }}</strong><small>{{ project.description }}</small></div></a>
               </div></section>
-              <section v-if="selectedMember.selectedExperience?.length"><h3>Selected experience</h3><div class="profile-projects">
+              <section v-if="selectedMember.selectedExperience?.length"><h3>{{ selectedMember.selectedExperienceTitle || 'Selected experience' }}</h3><div class="profile-projects">
                 <article v-for="item in selectedMember.selectedExperience" :key="item.name" class="profile-project"><span>◇</span><div><strong>{{ item.name }}</strong><small>{{ item.description }}</small></div></article>
               </div></section>
             </div>
             <aside class="profile-aside">
               <section v-if="selectedMember.technologies?.length"><h3>Expertise</h3><div class="tag-list tag-list--profile"><span v-for="technology in selectedMember.technologies" :key="technology">{{ technology }}</span></div></section>
+              <section v-if="selectedMember.expertiseGroups?.length"><h3>Expertise</h3><div class="expertise-groups">
+                <div v-for="group in selectedMember.expertiseGroups" :key="group.name" class="expertise-group"><h4>{{ group.name }}</h4><div class="tag-list tag-list--profile"><span v-for="skill in group.skills" :key="skill">{{ skill }}</span></div></div>
+              </div></section>
               <section v-if="selectedMember.languages?.length"><h3>Languages</h3><ul><li v-for="language in selectedMember.languages" :key="language">{{ language }}</li></ul></section>
-              <section v-if="selectedMember.github || selectedMember.linkedin"><h3>Links</h3><div class="profile-links"><a v-if="selectedMember.github" :href="selectedMember.github" target="_blank" rel="noopener">GitHub ↗</a><a v-if="selectedMember.linkedin" :href="selectedMember.linkedin" target="_blank" rel="noopener">LinkedIn ↗</a></div></section>
-<!--              <a v-if="selectedMember.resume" class="button button&#45;&#45;primary button&#45;&#45;full" :href="selectedMember.resume" target="_blank" rel="noopener">View full resume <span>↗</span></a>-->
+              <section v-if="selectedMember.github || selectedMember.linkedin"><h3>Links</h3><div class="profile-links"><a v-if="selectedMember.github" :href="selectedMember.github" target="_blank" rel="noopener noreferrer">GitHub ↗</a><a v-if="selectedMember.linkedin" :href="selectedMember.linkedin" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a></div></section>
+              <a v-if="selectedMember.resume" class="button button--primary button--full" :href="selectedMember.resume" target="_blank" rel="noopener noreferrer">{{ selectedMember.resumeLabel || 'View full resume' }} <span>↗</span></a>
             </aside>
           </div>
         </section>
