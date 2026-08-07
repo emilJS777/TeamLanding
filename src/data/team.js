@@ -54,7 +54,6 @@ export const team = [
     ],
     languages: ['Armenian — Native', 'Russian — Fluent', 'English — Technical working proficiency'],
     linkedin: 'https://www.linkedin.com/in/emil-hambardzumyan-989519235/',
-    github: 'https://github.com/emilJS777',
     resume: 'https://emil.deneon.net/'
   },
   {
@@ -232,6 +231,101 @@ export const team = [
     ]
   },
   {
+    id: 'taron-gevorgyan',
+    name: 'Taron Gevorgyan',
+    role: 'Senior Backend Engineer',
+    image: 'https://i.imgur.com/i5GiSzA.png',
+    imageAlt: 'Taron Gevorgyan — Senior Backend Engineer',
+    imageFallback: '/images/team/taron-gevorgyan-placeholder.svg',
+    summary:
+        'Backend and distributed-systems engineer with 15+ years of experience building scalable platforms, high-performance services and maintainable enterprise applications.',
+    about:
+        'Taron is a senior backend and distributed-systems engineer with more than 15 years of software development experience. He specializes in designing reliable and scalable platforms using Java, Spring, domain-driven design, event-driven architecture, relational and non-relational databases, cloud infrastructure and automated delivery pipelines. His background includes authentication platforms, billing systems, financial analytics, monitoring SaaS products and high-performance enterprise applications.',
+    cardTags: ['Java', 'Spring Boot', 'Distributed Systems', 'Cloud Architecture'],
+    expertiseGroups: [
+      {
+        name: 'Core expertise',
+        skills: [
+          'Backend architecture', 'Java and Spring development', 'Domain-Driven Design',
+          'Event-Driven Architecture', 'Microservices', 'Distributed systems',
+          'REST API design', 'Authentication and authorization', 'Performance optimization',
+          'Caching strategies', 'Relational and non-relational databases',
+          'Cloud infrastructure', 'CI/CD pipelines', 'Test-Driven Development',
+          'Behavior-Driven Development'
+        ]
+      },
+      {
+        name: 'Languages',
+        skills: ['Java', 'Python', 'JavaScript', 'TypeScript', 'SQL']
+      },
+      {
+        name: 'Frameworks & backend',
+        skills: [
+          'Spring Core', 'Spring Boot', 'Spring Security', 'Spring Data', 'Quarkus',
+          'Hibernate', 'Keycloak', 'Apache Kafka', 'RabbitMQ'
+        ]
+      },
+      {
+        name: 'Cloud & infrastructure',
+        skills: ['AWS', 'GCP', 'Docker', 'Kubernetes', 'Terraform', 'Jenkins', 'Nginx', 'CI/CD']
+      },
+      {
+        name: 'Databases & storage',
+        skills: ['PostgreSQL', 'MySQL', 'Oracle', 'MongoDB', 'FoundationDB', 'Redis', 'Elasticsearch']
+      },
+      {
+        name: 'Monitoring & testing',
+        skills: ['Kibana', 'Grafana', 'Logstash', 'Prometheus', 'JUnit', 'Mockito', 'TestNG']
+      }
+    ],
+    experience: [
+      {
+        period: 'Jun 2024 - Present',
+        company: 'Polixis',
+        position: 'Senior Software Engineer / Team Lead',
+        description:
+            'Integrated Keycloak with a custom user-management platform to provide secure SSO for multiple internal applications. Architected a scalable user-management platform supporting more than 10,000 users. Improved authentication response times by approximately 3x through architecture, caching and data-flow optimization. Integrated the authentication platform with multiple internal systems.'
+      },
+      {
+        period: 'Feb 2022 - May 2024',
+        company: 'Ultralabs',
+        position: 'Senior Software Engineer / Team Lead',
+        description:
+            'Worked on engineering processes, system architecture and delivery across a software-development team. Introduced Domain-Driven Design and comprehensive integration-testing practices. Helped reduce production defects to nearly zero. Improved collaboration and shortened stakeholder feedback cycles. Created and maintained CI/CD pipelines with a reported 99.9% deployment success rate.'
+      },
+      {
+        period: 'Apr 2018 - Feb 2022',
+        company: 'VMware',
+        position: 'Senior Software Engineer / Team Lead',
+        description:
+            'Designed a flexible billing-system architecture supporting multiple dynamic billing formulas. Developed tools for simulating customer environments, real-world data and high-load scenarios. Supported development and testing environments for a monitoring SaaS platform. Provided technical support and guidance across teams involving approximately 40 engineers.'
+      },
+      {
+        period: 'Aug 2016 - Apr 2018',
+        company: 'Deloitte Audit Analytics',
+        position: 'Senior Software Engineer',
+        description:
+            'Developed financial calculation tools for securities management. Refactored more than 500,000 lines of legacy code and integrated new data models. Designed and supported a platform for managing investments, funds and loans. Improved database performance, with some SQL queries becoming 10–20 times faster.'
+      },
+      {
+        period: 'Jul 2009 - Jul 2016',
+        company: 'Various Companies',
+        position: 'Software Engineer',
+        description:
+            'Worked on web, desktop and mobile applications. Developed experience in Delphi, Java, database management and object-oriented programming.'
+      }
+    ],
+    education: [
+      {
+        degree: "Bachelor's Degree in Informatics and Applied Mathematics",
+        institution: 'Yerevan State University',
+        period: 'Class of 2012'
+      }
+    ],
+    linkedin: 'https://linkedin.com/in/taron-gevorgyan-403a626b',
+    resumeLabel: 'Download CV'
+  },
+  {
     id: 'argam-torozyan',
     name: 'Argam Torozyan',
     role: 'Senior QA Engineer',
@@ -308,101 +402,6 @@ export const team = [
     ],
     languages: ['Armenian — Native', 'Russian — Professional', 'English — Professional'],
     linkedin: 'https://linkedin.com/in/argam-torozyan-35b471109',
-    resumeLabel: 'Download CV'
-  },
-  {
-    id: 'taron-gevorgyan',
-    name: 'Taron Gevorgyan',
-    role: 'Senior Backend Engineer',
-    image: 'https://i.imgur.com/i5GiSzA.png',
-    imageAlt: 'Taron Gevorgyan — Senior Backend Engineer',
-    imageFallback: '/images/team/taron-gevorgyan-placeholder.svg',
-    summary:
-      'Backend and distributed-systems engineer with 15+ years of experience building scalable platforms, high-performance services and maintainable enterprise applications.',
-    about:
-      'Taron is a senior backend and distributed-systems engineer with more than 15 years of software development experience. He specializes in designing reliable and scalable platforms using Java, Spring, domain-driven design, event-driven architecture, relational and non-relational databases, cloud infrastructure and automated delivery pipelines. His background includes authentication platforms, billing systems, financial analytics, monitoring SaaS products and high-performance enterprise applications.',
-    cardTags: ['Java', 'Spring Boot', 'Distributed Systems', 'Cloud Architecture'],
-    expertiseGroups: [
-      {
-        name: 'Core expertise',
-        skills: [
-          'Backend architecture', 'Java and Spring development', 'Domain-Driven Design',
-          'Event-Driven Architecture', 'Microservices', 'Distributed systems',
-          'REST API design', 'Authentication and authorization', 'Performance optimization',
-          'Caching strategies', 'Relational and non-relational databases',
-          'Cloud infrastructure', 'CI/CD pipelines', 'Test-Driven Development',
-          'Behavior-Driven Development'
-        ]
-      },
-      {
-        name: 'Languages',
-        skills: ['Java', 'Python', 'JavaScript', 'TypeScript', 'SQL']
-      },
-      {
-        name: 'Frameworks & backend',
-        skills: [
-          'Spring Core', 'Spring Boot', 'Spring Security', 'Spring Data', 'Quarkus',
-          'Hibernate', 'Keycloak', 'Apache Kafka', 'RabbitMQ'
-        ]
-      },
-      {
-        name: 'Cloud & infrastructure',
-        skills: ['AWS', 'GCP', 'Docker', 'Kubernetes', 'Terraform', 'Jenkins', 'Nginx', 'CI/CD']
-      },
-      {
-        name: 'Databases & storage',
-        skills: ['PostgreSQL', 'MySQL', 'Oracle', 'MongoDB', 'FoundationDB', 'Redis', 'Elasticsearch']
-      },
-      {
-        name: 'Monitoring & testing',
-        skills: ['Kibana', 'Grafana', 'Logstash', 'Prometheus', 'JUnit', 'Mockito', 'TestNG']
-      }
-    ],
-    experience: [
-      {
-        period: 'Jun 2024 - Present',
-        company: 'Polixis',
-        position: 'Senior Software Engineer / Team Lead',
-        description:
-          'Integrated Keycloak with a custom user-management platform to provide secure SSO for multiple internal applications. Architected a scalable user-management platform supporting more than 10,000 users. Improved authentication response times by approximately 3x through architecture, caching and data-flow optimization. Integrated the authentication platform with multiple internal systems.'
-      },
-      {
-        period: 'Feb 2022 - May 2024',
-        company: 'Ultralabs',
-        position: 'Senior Software Engineer / Team Lead',
-        description:
-          'Worked on engineering processes, system architecture and delivery across a software-development team. Introduced Domain-Driven Design and comprehensive integration-testing practices. Helped reduce production defects to nearly zero. Improved collaboration and shortened stakeholder feedback cycles. Created and maintained CI/CD pipelines with a reported 99.9% deployment success rate.'
-      },
-      {
-        period: 'Apr 2018 - Feb 2022',
-        company: 'VMware',
-        position: 'Senior Software Engineer / Team Lead',
-        description:
-          'Designed a flexible billing-system architecture supporting multiple dynamic billing formulas. Developed tools for simulating customer environments, real-world data and high-load scenarios. Supported development and testing environments for a monitoring SaaS platform. Provided technical support and guidance across teams involving approximately 40 engineers.'
-      },
-      {
-        period: 'Aug 2016 - Apr 2018',
-        company: 'Deloitte Audit Analytics',
-        position: 'Senior Software Engineer',
-        description:
-          'Developed financial calculation tools for securities management. Refactored more than 500,000 lines of legacy code and integrated new data models. Designed and supported a platform for managing investments, funds and loans. Improved database performance, with some SQL queries becoming 10–20 times faster.'
-      },
-      {
-        period: 'Jul 2009 - Jul 2016',
-        company: 'Various Companies',
-        position: 'Software Engineer',
-        description:
-          'Worked on web, desktop and mobile applications. Developed experience in Delphi, Java, database management and object-oriented programming.'
-      }
-    ],
-    education: [
-      {
-        degree: "Bachelor's Degree in Informatics and Applied Mathematics",
-        institution: 'Yerevan State University',
-        period: 'Class of 2012'
-      }
-    ],
-    linkedin: 'https://linkedin.com/in/taron-gevorgyan-403a626b',
     resumeLabel: 'Download CV'
   }
 ]
