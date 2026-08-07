@@ -407,5 +407,104 @@ export const team = [
     linkedin: 'https://linkedin.com/in/argam-torozyan-35b471109',
     resumeLabel: 'Download CV'
   },
+  {
+    id: 'zori-sargsyan',
+    name: 'Zori Sargsyan',
+    role: 'Senior QA Automation Engineer',
+    image: 'https://i.imgur.com/Zjy1fA7.png',
+    imageAlt: 'Zori Sargsyan — Senior QA Automation Engineer',
+    imageFallback: '/images/team/zori-sargsyan-placeholder.svg',
+    summary:
+      'QA automation engineer with 10+ years of quality assurance experience, specializing in test-framework development, mobile and web automation, API testing and reducing manual testing effort.',
+    tags: ['Java', 'Selenium', 'Appium', 'Rest Assured'],
+    about:
+      'Zori is a senior QA automation engineer with more than 10 years of quality assurance experience. He specializes in designing and maintaining automation frameworks, implementing automated test cases and reducing repetitive manual testing effort. His background covers mobile, web, API, functional, regression and performance testing across product and customer-facing applications.',
+    technologiesTitle: 'Technologies and tools',
+    technologies: [
+      'Java', 'Selenium', 'Appium', 'UI Automator', 'Rest Assured', 'TestNG',
+      'Spock Framework', 'Cucumber', 'Robot Framework', 'JMeter', 'Gatling',
+      'Git', 'Jenkins', 'TeamCity', 'Maven', 'Gradle', 'Jira', 'Confluence'
+    ],
+    expertiseGroups: [{
+      name: 'Core expertise',
+      skills: [
+        'Test automation architecture', 'Automation framework development',
+        'UI test automation', 'Mobile test automation', 'API test automation',
+        'Functional testing', 'Regression testing', 'Test-case design',
+        'Automated test execution and analysis', 'Test reporting', 'CI integration',
+        'Performance and load testing', 'Manual-to-automation transition',
+        'Bug reporting and verification'
+      ]
+    }],
+    experience: [
+      {
+        period: 'Jul 2021 – Present', company: 'Dexatel CJSC', position: 'Senior QA Automation Engineer',
+        responsibilities: [
+          'Validates development tickets and automation requirements.', 'Reviews and analyzes test scenarios.',
+          'Develops and maintains test-automation frameworks.', 'Implements and automates test cases.',
+          'Runs and analyzes automated tests.', 'Produces test summaries and reports.',
+          'Maintains automation scripts and related jobs.'
+        ]
+      },
+      {
+        period: 'Jul 2020 – Jan 2021', company: 'Webb Fontaine', position: 'QA Automation Team Lead',
+        responsibilities: [
+          'Developed and improved test-automation frameworks.', 'Investigated technologies for automation projects.',
+          'Implemented automated test cases.', 'Helped team members plan and complete their tasks.'
+        ]
+      },
+      {
+        period: 'Jul 2019 – Jul 2020', company: 'Webb Fontaine', position: 'QA Automation Engineer',
+        responsibilities: ['Developed test frameworks.', 'Improved existing automation frameworks.', 'Implemented automated test cases.']
+      },
+      {
+        period: 'Jul 2016 – Jul 2019', company: 'Instigate Mobile CJSC', position: 'QA Automation Engineer',
+        responsibilities: [
+          'Reviewed test scenarios and automation requirements.', 'Developed test frameworks.',
+          'Implemented automated test cases.', 'Ran and analyzed automated tests.', 'Produced test summaries and reports.'
+        ]
+      },
+      {
+        period: 'Jul 2014 – Jul 2016', company: 'Instigate Mobile CJSC', position: 'QA Analyst',
+        responsibilities: [
+          'Worked on functional testing for mobile and web applications.', 'Covered iOS, Android, Amazon and Windows platforms.',
+          'Created and manually executed test cases.', 'Performed regression testing and bug verification.',
+          'Reported defects and test results.', 'Supported QA teams of 2–4 members.'
+        ]
+      },
+      {
+        period: 'Dec 2013 – Jul 2014', company: 'Instigate Mobile CJSC', position: 'QA Engineer',
+        responsibilities: [
+          'Manually tested a multi-platform action-adventure game.', 'Executed test cases and performed regression testing.',
+          'Conducted playthrough and ad-hoc testing.', 'Created, verified and reported defects.'
+        ]
+      },
+      {
+        period: 'Sep 2012 – Dec 2013', company: 'Instigate Design CJSC', position: 'QA Engineer',
+        responsibilities: ['Tested a parallel-programming and chip-design tool.', 'Reported software defects.', 'Automated tests using Tcl.']
+      },
+      {
+        period: 'Oct 2015 – Dec 2020', company: 'Testlio', position: 'QA Tester — Freelance',
+        responsibilities: [
+          'Tested more than ten mobile applications, including Microsoft Outlook and Microsoft To Do.',
+          'Performed functional testing.', 'Reported issues and test results.', 'Performed bug verification.'
+        ]
+      }
+    ],
+    education: [{
+      degree: "Bachelor's Degree in Engineering, Information Systems",
+      institution: 'State Engineering University of Armenia',
+      period: '2006–2010'
+    }],
+    training: [{
+      program: 'Software Engineer program',
+      institution: 'Instigate Training Center',
+      period: 'Jun 2012 – Sep 2012'
+    }],
+    languages: ['Armenian — Native', 'English — Intermediate', 'Russian — Intermediate'],
+    linkedin: 'https://www.linkedin.com/in/zori-sargsyan-659473109',
+    resume: '/resumes/zori-sargsyan-cv.pdf',
+    resumeLabel: 'Download CV'
+  },
 
 ]

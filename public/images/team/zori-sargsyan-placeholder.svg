@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" role="img" aria-labelledby="title desc">
+  <title id="title">Zori Sargsyan portrait placeholder</title>
+  <desc id="desc">A neutral portrait placeholder used if Zori Sargsyan's photo cannot load.</desc>
+  <defs>
+    <radialGradient id="background" cx="50%" cy="20%" r="80%">
+      <stop offset="0" stop-color="#12354c"/>
+      <stop offset="1" stop-color="#07111e"/>
+    </radialGradient>
+    <linearGradient id="person" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#30ecf4" stop-opacity=".52"/>
+      <stop offset="1" stop-color="#168fe8" stop-opacity=".28"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#background)"/>
+  <circle cx="400" cy="230" r="92" fill="url(#person)"/>
+  <path d="M210 600c12-150 83-238 190-238s178 88 190 238" fill="url(#person)"/>
+</svg>

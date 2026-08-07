@@ -794,12 +794,17 @@ onBeforeUnmount(() => {
               <section><h3>About</h3><p>{{ selectedMember.about }}</p></section>
               <section v-if="selectedMember.experience?.length"><h3>Experience</h3><div class="timeline">
                 <div v-for="item in selectedMember.experience" :key="item.period + item.company" class="timeline-item">
-                  <span>{{ item.period }}</span><div><h4>{{ item.position }}</h4><strong>{{ item.company }}</strong><p>{{ item.description }}</p></div>
+                  <span>{{ item.period }}</span><div><h4>{{ item.position }}</h4><strong>{{ item.company }}</strong><p v-if="item.description">{{ item.description }}</p><ul v-if="item.responsibilities?.length" class="timeline-responsibilities"><li v-for="responsibility in item.responsibilities" :key="responsibility">{{ responsibility }}</li></ul></div>
                 </div>
               </div></section>
               <section v-if="selectedMember.education?.length"><h3>Education</h3><div class="profile-education">
                 <article v-for="item in selectedMember.education" :key="item.degree + item.institution">
                   <span>{{ item.period }}</span><div><h4>{{ item.degree }}</h4><strong>{{ item.institution }}</strong><p v-if="item.location">{{ item.location }}</p></div>
+                </article>
+              </div></section>
+              <section v-if="selectedMember.training?.length"><h3>Additional training</h3><div class="profile-education">
+                <article v-for="item in selectedMember.training" :key="item.program + item.institution">
+                  <span>{{ item.period }}</span><div><h4>{{ item.program }}</h4><strong>{{ item.institution }}</strong></div>
                 </article>
               </div></section>
               <section v-if="selectedMember.projects?.length"><h3>Selected projects</h3><div class="profile-projects">
@@ -810,13 +815,13 @@ onBeforeUnmount(() => {
               </div></section>
             </div>
             <aside class="profile-aside">
-              <section v-if="selectedMember.technologies?.length"><h3>Expertise</h3><div class="tag-list tag-list--profile"><span v-for="technology in selectedMember.technologies" :key="technology">{{ technology }}</span></div></section>
+              <section v-if="selectedMember.technologies?.length"><h3>{{ selectedMember.technologiesTitle || 'Expertise' }}</h3><div class="tag-list tag-list--profile"><span v-for="technology in selectedMember.technologies" :key="technology">{{ technology }}</span></div></section>
               <section v-if="selectedMember.expertiseGroups?.length"><h3>Expertise</h3><div class="expertise-groups">
                 <div v-for="group in selectedMember.expertiseGroups" :key="group.name" class="expertise-group"><h4>{{ group.name }}</h4><div class="tag-list tag-list--profile"><span v-for="skill in group.skills" :key="skill">{{ skill }}</span></div></div>
               </div></section>
               <section v-if="selectedMember.languages?.length"><h3>Languages</h3><ul><li v-for="language in selectedMember.languages" :key="language">{{ language }}</li></ul></section>
               <section v-if="selectedMember.github || selectedMember.linkedin"><h3>Links</h3><div class="profile-links"><a v-if="selectedMember.github" :href="selectedMember.github" target="_blank" rel="noopener noreferrer">GitHub ↗</a><a v-if="selectedMember.linkedin" :href="selectedMember.linkedin" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a></div></section>
-<!--              <a v-if="selectedMember.resume" class="button button&#45;&#45;primary button&#45;&#45;full" :href="selectedMember.resume" target="_blank" rel="noopener noreferrer">{{ selectedMember.resumeLabel || 'View full resume' }} <span>↗</span></a>-->
+              <a v-if="selectedMember.resume" class="button button--primary button--full" :href="selectedMember.resume" target="_blank" rel="noopener noreferrer">{{ selectedMember.resumeLabel || 'View full resume' }} <span>↗</span></a>
             </aside>
           </div>
         </section>
