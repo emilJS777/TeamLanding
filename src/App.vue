@@ -816,7 +816,7 @@ onBeforeUnmount(() => {
               </div></section>
               <section v-if="selectedMember.languages?.length"><h3>Languages</h3><ul><li v-for="language in selectedMember.languages" :key="language">{{ language }}</li></ul></section>
               <section v-if="selectedMember.github || selectedMember.linkedin"><h3>Links</h3><div class="profile-links"><a v-if="selectedMember.github" :href="selectedMember.github" target="_blank" rel="noopener noreferrer">GitHub ↗</a><a v-if="selectedMember.linkedin" :href="selectedMember.linkedin" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a></div></section>
-              <a v-if="selectedMember.resume" class="button button--primary button--full" :href="selectedMember.resume" target="_blank" rel="noopener noreferrer">{{ selectedMember.resumeLabel || 'View full resume' }} <span>↗</span></a>
+<!--              <a v-if="selectedMember.resume" class="button button&#45;&#45;primary button&#45;&#45;full" :href="selectedMember.resume" target="_blank" rel="noopener noreferrer">{{ selectedMember.resumeLabel || 'View full resume' }} <span>↗</span></a>-->
             </aside>
           </div>
         </section>
