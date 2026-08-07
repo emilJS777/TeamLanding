@@ -502,9 +502,7 @@ export const team = [
       period: 'Jun 2012 – Sep 2012'
     }],
     languages: ['Armenian — Native', 'English — Intermediate', 'Russian — Intermediate'],
-    linkedin: 'https://www.linkedin.com/in/zori-sargsyan-659473109',
-    resume: '/resumes/zori-sargsyan-cv.pdf',
-    resumeLabel: 'Download CV'
+    linkedin: 'https://www.linkedin.com/in/zori-sargsyan-659473109'
   },
 
 ]
