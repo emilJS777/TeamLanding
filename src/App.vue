@@ -791,7 +791,7 @@ onBeforeUnmount(() => {
           </div>
           <div class="profile-body">
             <div class="profile-main">
-              <section><h3>About</h3><p>{{ selectedMember.about }}</p></section>
+              <section><h3>About</h3><template v-if="selectedMember.aboutParagraphs?.length"><p v-for="paragraph in selectedMember.aboutParagraphs" :key="paragraph">{{ paragraph }}</p></template><p v-else>{{ selectedMember.about }}</p></section>
               <section v-if="selectedMember.experience?.length"><h3>Experience</h3><div class="timeline">
                 <div v-for="item in selectedMember.experience" :key="item.period + item.company" class="timeline-item">
                   <span>{{ item.period }}</span><div><h4>{{ item.position }}</h4><strong>{{ item.company }}</strong><p v-if="item.description">{{ item.description }}</p><ul v-if="item.responsibilities?.length" class="timeline-responsibilities"><li v-for="responsibility in item.responsibilities" :key="responsibility">{{ responsibility }}</li></ul></div>
@@ -808,7 +808,7 @@ onBeforeUnmount(() => {
                 </article>
               </div></section>
               <section v-if="selectedMember.projects?.length"><h3>Selected projects</h3><div class="profile-projects">
-                <a v-for="project in selectedMember.projects" :key="project.name" :href="project.url" target="_blank" rel="noopener"><span>↗</span><div><strong>{{ project.name }}</strong><small>{{ project.description }}</small></div></a>
+                <a v-for="project in selectedMember.projects" :key="project.name" :href="project.url" target="_blank" rel="noopener noreferrer"><span>↗</span><div><strong>{{ project.name }}</strong><small>{{ project.description }}</small><div v-if="project.tags?.length" class="tag-list tag-list--profile project-tags"><span v-for="tag in project.tags" :key="tag">{{ tag }}</span></div></div></a>
               </div></section>
               <section v-if="selectedMember.selectedExperience?.length"><h3>{{ selectedMember.selectedExperienceTitle || 'Selected experience' }}</h3><div class="profile-projects">
                 <article v-for="item in selectedMember.selectedExperience" :key="item.name" class="profile-project"><span>◇</span><div><strong>{{ item.name }}</strong><small>{{ item.description }}</small></div></article>

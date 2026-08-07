@@ -7,50 +7,115 @@ export const team = [
     summary:
       'Backend and full-stack developer experienced in building production-grade financial, blockchain and Web3 products with Python, .NET and Vue.js.',
     tags: ['Python', 'FastAPI', '.NET', 'Vue.js'],
-    about:
-      'I design and build secure APIs, blockchain integrations, wallets, transaction flows and real-time product experiences. My focus is reliable architecture, clear business logic and taking products from an idea to a working production system.',
-    technologies: [
-      'Python', 'FastAPI', '.NET Core', 'C#', 'Vue.js', 'JavaScript',
-      'PostgreSQL', 'MySQL', 'Redis', 'Web3', 'SQLAlchemy', 'Docker'
+    aboutParagraphs: [
+      'Emil designs and builds backend platforms, secure APIs, blockchain integrations, wallets, transaction-processing flows and real-time product experiences. His work covers the full product lifecycle — from architecture and business logic to frontend integration and production delivery.',
+      'He focuses on building practical, maintainable systems that connect complex blockchain infrastructure with clear user-facing products.',
+      'As part of his modern development workflow, Emil actively uses AI coding agents to accelerate implementation, debugging and refactoring while keeping architecture and engineering decisions under his control.'
+    ],
+    expertiseGroups: [
+      {
+        name: 'Core expertise',
+        skills: [
+          'Backend architecture', 'Full-stack product development', 'REST API design',
+          'Asynchronous backend services', 'Financial and Web3 systems', 'Blockchain integrations',
+          'Wallet infrastructure', 'Transaction processing', 'Real-time applications',
+          'Authentication and authorization', 'Role-based access control', 'Multi-approval workflows',
+          'Webhook architecture', 'Blockchain scanners', 'Database design',
+          'Caching and background processing', 'Third-party API integrations',
+          'Performance optimization', 'Production troubleshooting'
+        ]
+      },
+      {
+        name: 'Backend development',
+        skills: [
+          'Python', 'FastAPI', 'Flask', '.NET Core', 'C#', 'SQLAlchemy', 'Async SQLAlchemy',
+          'REST APIs', 'Background services', 'Webhooks', 'WebSocket and Socket.IO integrations',
+          'API authentication', 'Business-logic implementation'
+        ]
+      },
+      {
+        name: 'Blockchain and Web3',
+        skills: [
+          'EVM-compatible networks', 'Ethereum transaction flows', 'TRON integrations',
+          'TON integrations', 'Bitcoin integrations', 'Solana transaction integration',
+          'Custodial wallets', 'Non-custodial wallets', 'Transaction creation and broadcasting',
+          'Serialized transaction signing', 'Multi-chain asset management', 'Blockchain scanners',
+          'Blockchain webhooks', 'WalletConnect', 'Token and balance processing',
+          'DEX and swap flows', 'Web3 onboarding', 'GameFi mechanics'
+        ]
+      },
+      {
+        name: 'Frontend and product UI',
+        skills: [
+          'Vue.js', 'Vue 3', 'JavaScript', 'Vite', 'Responsive application interfaces',
+          'REST API integration', 'Real-time frontend updates', 'Multilingual interfaces',
+          'Telegram Mini Apps'
+        ]
+      },
+      {
+        name: 'Databases and data infrastructure',
+        skills: [
+          'PostgreSQL', 'MySQL', 'MongoDB', 'Redis', 'Relational data modelling',
+          'Database migrations', 'Transactional data flows', 'Caching strategies'
+        ]
+      }
     ],
     experience: [
       {
         period: '2025 — Present',
         company: 'DENeon',
         position: 'Full-Stack & Blockchain Developer',
-        description:
-          'Building multi-chain custody infrastructure, a non-custodial wallet, DEX flows and GameFi products across EVM, TRON, TON, Bitcoin and Solana integrations.'
+        responsibilities: [
+          'Building multi-chain custody and wallet infrastructure.',
+          'Developing transaction creation, signing, approval and broadcasting flows.',
+          'Implementing blockchain scanners, webhooks and unified APIs.',
+          'Supporting EVM, TRON, TON, Bitcoin and Solana integrations.',
+          'Building non-custodial wallet, DEX and swap experiences.',
+          'Developing Telegram-based GameFi products with wallet onboarding and real-time mechanics.',
+          'Working across backend architecture, frontend integration, databases and production delivery.'
+        ]
       },
       {
         period: '2024 — 2026',
         company: 'FreedX',
         position: 'Full-Stack & Blockchain Developer',
-        description:
-          'Worked on backend and blockchain services for digital-asset products, integrations and transaction processing.'
+        responsibilities: [
+          'Worked on backend and blockchain services for digital-asset products.',
+          'Developed API integrations and transaction-processing functionality.',
+          'Contributed to production financial and Web3 systems.',
+          'Worked with backend services, databases and third-party integrations.'
+        ]
       },
       {
         period: '2022 — 2024',
         company: 'Hopshop',
         position: 'Software Developer',
-        description:
-          'Developed backend and full-stack product functionality, APIs, data flows and internal business systems.'
+        responsibilities: [
+          'Developed backend and full-stack product functionality.',
+          'Built APIs, data-processing flows and internal business systems.',
+          'Worked with application databases and frontend integrations.',
+          'Supported existing systems and implemented new product functionality.'
+        ]
       }
     ],
     projects: [
       {
         name: 'DENeon Custody Infrastructure',
-        description: 'Multi-chain custody, transaction processing, scanners, webhooks and approval workflows.',
-        url: 'https://custody.deneon.net'
+        description: 'Multi-chain custody infrastructure with wallet management, transaction creation and execution, blockchain scanners, webhooks, unified APIs, workspace permissions and configurable multi-approval workflows.',
+        url: 'https://custody.deneon.net/',
+        tags: ['Python', 'FastAPI', '.NET', 'Multi-chain', 'Custody', 'Transaction Processing']
       },
       {
         name: 'DENeon DEX & Wallet',
-        description: 'Non-custodial wallet, asset management, swaps and real-time Web3 product flows.',
-        url: 'https://deneon.net'
+        description: 'Non-custodial Web3 wallet experience with multi-chain assets, transaction signing, swaps, real-time price updates and connected product flows.',
+        url: 'https://deneon.net/',
+        tags: ['Vue.js', 'FastAPI', 'Web3', 'Wallet', 'DEX', 'Realtime']
       },
       {
         name: 'DENeon GameFi',
-        description: 'Telegram Mini App combining games, wallet onboarding, rewards and blockchain mechanics.',
-        url: 'https://mini.app.deneon.net'
+        description: 'Telegram Mini App combining games, non-custodial wallet onboarding, Shard rewards, referrals, realtime mechanics and blockchain-based product experiences.',
+        url: 'https://mini.app.deneon.net/',
+        tags: ['Telegram Mini App', 'Vue 3', 'FastAPI', 'GameFi', 'Socket.IO', 'Web3']
       }
     ],
     languages: ['Armenian — Native', 'Russian — Fluent', 'English — Technical working proficiency'],
