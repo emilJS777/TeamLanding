@@ -137,100 +137,6 @@ export const team = [
     languages: ['Armenian - Native', 'English - Advanced', 'Russian - Advanced']
   },
   {
-    id: 'harutyun-navasardyan',
-    name: 'Harutyun Navasardyan',
-    role: 'QA Engineer',
-    image: 'https://i.imgur.com/6BRkfIA.png',
-    imageAlt: 'Harutyun Navasardyan - QA Engineer',
-    imageFallback: '/images/team/harutyun-navasardyan-placeholder.svg',
-    summary:
-      'QA Engineer experienced in manual, functional, regression and API testing across web, Android and iOS products.',
-    about:
-      'Detail-oriented QA Engineer experienced in manual testing, API testing and functional validation across web, Android and iOS platforms. Skilled in test planning, test-case design, defect reporting, UX evaluation and collaboration with cross-functional product teams. Focused on product quality, usability and reliable software delivery.',
-    expertiseGroups: [
-      {
-        name: 'Testing',
-        skills: ['Manual Testing', 'Functional Testing', 'Regression Testing', 'Game Testing', 'UX/UI Evaluation']
-      },
-      {
-        name: 'API & Platforms',
-        skills: ['Postman', 'API Testing', 'Web', 'Android', 'iOS']
-      },
-      {
-        name: 'QA Process',
-        skills: ['Test Planning', 'Test Case Design', 'Defect Tracking', 'Bug Reporting', 'QA Documentation', 'SDLC', 'STLC']
-      },
-      {
-        name: 'Methodologies',
-        skills: ['Agile/Scrum', 'Kanban']
-      },
-      {
-        name: 'Currently Learning',
-        skills: ['Java - Currently learning', 'Selenium - Currently learning']
-      },
-      {
-        name: 'Additional',
-        skills: ['AI Tools and AI Agents in QA workflows']
-      }
-    ],
-    experience: [
-      {
-        period: 'September 2025 - Present',
-        company: 'Partao',
-        position: 'Mid QA Engineer',
-        description:
-          'Creates and executes test cases for web, Android and iOS applications. Performs API testing with Postman, validates requests, responses and system behavior, participates in product discussions, reviews technical documentation and prepares QA reports.'
-      },
-      {
-        period: 'July 2022 - May 2026',
-        company: 'MarktGuru',
-        position: 'Mid QA Engineer',
-        description:
-          'Designed and executed test cases for web, Android and iOS products. Conducted API testing with Postman, validated endpoints, payloads and response codes, participated in product planning, reviewed technical designs and prepared reports for management.'
-      },
-      {
-        period: 'April 2019 - July 2022',
-        company: 'Testlio',
-        position: 'QA Engineer',
-        description:
-          'Performed functional, regression and usability testing across multiple web, Android and iOS projects. Designed and executed test cases and provided recommendations for improving user experience and software quality.'
-      },
-      {
-        period: '2016 - 2021',
-        company: 'MarktGuru',
-        position: 'Data Input Specialist',
-        description:
-          'Worked on the digitalization and tagging of structured information using verified values.'
-      }
-    ],
-    education: [
-      {
-        degree: "Bachelor's Degree in Computer Science and Statistics",
-        institution: 'Armenian State University of Economics',
-        period: 'Class of 2012'
-      }
-    ],
-    selectedExperienceTitle: 'Testing Experience',
-    selectedExperience: [
-      {
-        name: 'Cross-Platform Product Testing',
-        description: 'Manual, functional, regression and usability testing across web, Android and iOS applications.'
-      },
-      {
-        name: 'API Validation',
-        description: 'Testing REST API requests, responses, endpoints, payloads and response codes using Postman.'
-      },
-      {
-        name: 'Test Planning and Documentation',
-        description: 'Test-case design, QA documentation review, defect reporting and preparation of structured quality reports.'
-      },
-      {
-        name: 'Product Quality and UX',
-        description: 'Participation in product discussions and evaluation of usability and user experience across different platforms.'
-      }
-    ]
-  },
-  {
     id: 'taron-gevorgyan',
     name: 'Taron Gevorgyan',
     role: 'Senior Backend Engineer',
@@ -326,6 +232,100 @@ export const team = [
     resumeLabel: 'Download CV'
   },
   {
+    id: 'harutyun-navasardyan',
+    name: 'Harutyun Navasardyan',
+    role: 'QA Engineer',
+    image: 'https://i.imgur.com/6BRkfIA.png',
+    imageAlt: 'Harutyun Navasardyan - QA Engineer',
+    imageFallback: '/images/team/harutyun-navasardyan-placeholder.svg',
+    summary:
+      'QA Engineer experienced in manual, functional, regression and API testing across web, Android and iOS products.',
+    about:
+      'Detail-oriented QA Engineer experienced in manual testing, API testing and functional validation across web, Android and iOS platforms. Skilled in test planning, test-case design, defect reporting, UX evaluation and collaboration with cross-functional product teams. Focused on product quality, usability and reliable software delivery.',
+    expertiseGroups: [
+      {
+        name: 'Testing',
+        skills: ['Manual Testing', 'Functional Testing', 'Regression Testing', 'Game Testing', 'UX/UI Evaluation']
+      },
+      {
+        name: 'API & Platforms',
+        skills: ['Postman', 'API Testing', 'Web', 'Android', 'iOS']
+      },
+      {
+        name: 'QA Process',
+        skills: ['Test Planning', 'Test Case Design', 'Defect Tracking', 'Bug Reporting', 'QA Documentation', 'SDLC', 'STLC']
+      },
+      {
+        name: 'Methodologies',
+        skills: ['Agile/Scrum', 'Kanban']
+      },
+      {
+        name: 'Currently Learning',
+        skills: ['Java - Currently learning', 'Selenium - Currently learning']
+      },
+      {
+        name: 'Additional',
+        skills: ['AI Tools and AI Agents in QA workflows']
+      }
+    ],
+    experience: [
+      {
+        period: 'September 2025 - Present',
+        company: 'Partao',
+        position: 'Mid QA Engineer',
+        description:
+          'Creates and executes test cases for web, Android and iOS applications. Performs API testing with Postman, validates requests, responses and system behavior, participates in product discussions, reviews technical documentation and prepares QA reports.'
+      },
+      {
+        period: 'July 2022 - May 2026',
+        company: 'MarktGuru',
+        position: 'Mid QA Engineer',
+        description:
+          'Designed and executed test cases for web, Android and iOS products. Conducted API testing with Postman, validated endpoints, payloads and response codes, participated in product planning, reviewed technical designs and prepared reports for management.'
+      },
+      {
+        period: 'April 2019 - July 2022',
+        company: 'Testlio',
+        position: 'QA Engineer',
+        description:
+          'Performed functional, regression and usability testing across multiple web, Android and iOS projects. Designed and executed test cases and provided recommendations for improving user experience and software quality.'
+      },
+      {
+        period: '2016 - 2021',
+        company: 'MarktGuru',
+        position: 'Data Input Specialist',
+        description:
+          'Worked on the digitalization and tagging of structured information using verified values.'
+      }
+    ],
+    education: [
+      {
+        degree: "Bachelor's Degree in Computer Science and Statistics",
+        institution: 'Armenian State University of Economics',
+        period: 'Class of 2012'
+      }
+    ],
+    selectedExperienceTitle: 'Testing Experience',
+    selectedExperience: [
+      {
+        name: 'Cross-Platform Product Testing',
+        description: 'Manual, functional, regression and usability testing across web, Android and iOS applications.'
+      },
+      {
+        name: 'API Validation',
+        description: 'Testing REST API requests, responses, endpoints, payloads and response codes using Postman.'
+      },
+      {
+        name: 'Test Planning and Documentation',
+        description: 'Test-case design, QA documentation review, defect reporting and preparation of structured quality reports.'
+      },
+      {
+        name: 'Product Quality and UX',
+        description: 'Participation in product discussions and evaluation of usability and user experience across different platforms.'
+      }
+    ]
+  },
+  {
     id: 'argam-torozyan',
     name: 'Argam Torozyan',
     role: 'Senior QA Engineer',
@@ -403,5 +403,6 @@ export const team = [
     languages: ['Armenian — Native', 'Russian — Professional', 'English — Professional'],
     linkedin: 'https://linkedin.com/in/argam-torozyan-35b471109',
     resumeLabel: 'Download CV'
-  }
+  },
+
 ]
