@@ -140,7 +140,7 @@ export const team = [
     id: 'taron-gevorgyan',
     name: 'Taron Gevorgyan',
     role: 'Senior Backend Engineer',
-    image: 'https://i.imgur.com/i5GiSzA.png',
+    image: 'https://i.imgur.com/9cKyNiW.png',
     imageAlt: 'Taron Gevorgyan — Senior Backend Engineer',
     imageFallback: '/images/team/taron-gevorgyan-placeholder.svg',
     summary:
