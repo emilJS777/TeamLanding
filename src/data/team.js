@@ -6,6 +6,7 @@ export const team = [
     image: 'https://i.imgur.com/sJO1b1u.png',
     summary:
       'Backend and full-stack developer experienced in building production-grade financial, blockchain and Web3 products with Python, .NET and Vue.js.',
+    tags: ['Python', 'FastAPI', '.NET', 'Vue.js'],
     about:
       'I design and build secure APIs, blockchain integrations, wallets, transaction flows and real-time product experiences. My focus is reliable architecture, clear business logic and taking products from an idea to a working production system.',
     technologies: [
@@ -63,6 +64,7 @@ export const team = [
     image: 'https://i.imgur.com/yPDmRvA.png',
     summary:
       'Backend .NET Engineer with 6+ years of experience building scalable APIs, enterprise applications and data-intensive backend services with C# and ASP.NET Core.',
+    tags: ['C#', 'ASP.NET Core', 'REST APIs', 'PostgreSQL'],
     about:
       'Backend .NET Engineer experienced in designing and developing high-performance backend applications and enterprise software. Strong background in scalable REST APIs, complex business logic, database optimization, background processing and third-party integrations, with a focus on clean, reliable and maintainable code.',
     technologies: [
@@ -147,7 +149,7 @@ export const team = [
         'Backend and distributed-systems engineer with 15+ years of experience building scalable platforms, high-performance services and maintainable enterprise applications.',
     about:
         'Taron is a senior backend and distributed-systems engineer with more than 15 years of software development experience. He specializes in designing reliable and scalable platforms using Java, Spring, domain-driven design, event-driven architecture, relational and non-relational databases, cloud infrastructure and automated delivery pipelines. His background includes authentication platforms, billing systems, financial analytics, monitoring SaaS products and high-performance enterprise applications.',
-    cardTags: ['Java', 'Spring Boot', 'Distributed Systems', 'Cloud Architecture'],
+    tags: ['Java', 'Spring Boot', 'Distributed Systems', 'Cloud Architecture'],
     expertiseGroups: [
       {
         name: 'Core expertise',
@@ -240,6 +242,7 @@ export const team = [
     imageFallback: '/images/team/harutyun-navasardyan-placeholder.svg',
     summary:
       'QA Engineer experienced in manual, functional, regression and API testing across web, Android and iOS products.',
+    tags: ['Manual QA', 'API Testing', 'Mobile QA', 'Regression Testing'],
     about:
       'Detail-oriented QA Engineer experienced in manual testing, API testing and functional validation across web, Android and iOS platforms. Skilled in test planning, test-case design, defect reporting, UX evaluation and collaboration with cross-functional product teams. Focused on product quality, usability and reliable software delivery.',
     expertiseGroups: [
@@ -336,7 +339,7 @@ export const team = [
       'Senior QA engineer with 12+ years of experience across mobile, web and backend products, specializing in release quality, regression strategy, API testing and production validation.',
     about:
       'Argam is a senior quality assurance engineer with more than 12 years of experience testing mobile, web and backend products. He focuses on release reliability, functional and exploratory testing, regression strategy, compatibility coverage, API validation and production monitoring. He has worked across distributed product teams and high-frequency release environments.',
-    cardTags: ['Mobile QA', 'API Testing', 'Release Validation', 'Regression Testing'],
+    tags: ['Mobile QA', 'API Testing', 'Release Validation', 'Regression Testing'],
     expertiseGroups: [
       {
         name: 'Core expertise',

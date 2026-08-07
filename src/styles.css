@@ -100,8 +100,8 @@ h1 em { color: transparent; font-style: normal; -webkit-text-stroke: 1px #7ce8f0
 .member-card:hover img { transform: scale(1.018); }
 .member-content { padding: 32px 34px 34px; z-index: 2; flex: 1; display: flex; flex-direction: column; align-items: flex-start; }
 .member-role { margin: 0 0 10px; color: var(--cyan); font-size: 10px; font-weight: 800; letter-spacing: 1px; text-transform: uppercase; }
-.member-content h3 { margin: 0 0 14px; font-size: 27px; }.member-content > p:not(.member-role) { margin: 0; color: var(--muted); font-size: 13px; line-height: 1.7; }
-.member-tags { margin-top: 18px; display: flex; flex-wrap: wrap; gap: 6px; }.member-tags span { padding: 5px 8px; color: #8ccbd6; border: 1px solid rgba(33,212,232,.18); border-radius: 4px; background: rgba(33,212,232,.035); font-size: 9px; }
+.member-content h3 { margin: 0 0 14px; font-size: 27px; }.member-content > p:not(.member-role) { min-height: 89px; margin: 0; color: var(--muted); font-size: 13px; line-height: 1.7; }
+.member-tags { width: 100%; min-height: 54px; margin-top: 18px; display: flex; align-content: flex-start; flex-wrap: wrap; gap: 6px; }.member-tags span { max-width: 100%; padding: 5px 8px; color: #8ccbd6; border: 1px solid rgba(33,212,232,.18); border-radius: 4px; background: rgba(33,212,232,.035); overflow-wrap: anywhere; font-size: 9px; }
 .member-content button { margin-top: auto; padding: 26px 0 0; color: var(--cyan); border: 0; background: none; cursor: pointer; font-size: 12px; font-weight: 700; }
 .team-placeholder { min-height: 130px; padding: 28px 34px; grid-column: 1 / -1; display: flex; flex-direction: row; align-items: center; gap: 22px; border: 1px dashed rgba(118,174,202,.25); border-radius: 10px; background: rgba(9,21,34,.34); }
 .team-placeholder > span { width: 50px; height: 50px; display: grid; place-items: center; color: var(--cyan); border: 1px solid var(--border); border-radius: 50%; font-size: 24px; }

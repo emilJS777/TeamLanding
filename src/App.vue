@@ -742,15 +742,15 @@ onBeforeUnmount(() => {
               <p class="member-role">{{ member.role }}</p>
               <h3>{{ member.name }}</h3>
               <p>{{ member.summary }}</p>
-              <div v-if="member.cardTags?.length" class="member-tags"><span v-for="tag in member.cardTags" :key="tag">{{ tag }}</span></div>
+              <div v-if="member.tags?.length" class="member-tags"><span v-for="tag in member.tags" :key="tag">{{ tag }}</span></div>
               <button type="button" @click.stop="openProfile(member)">View profile <span>→</span></button>
             </div>
           </article>
 
-          <div class="team-placeholder">
-            <span>+</span>
-            <div><strong>More specialists coming soon</strong><small>Team profiles will be added from verified CVs.</small></div>
-          </div>
+<!--          <div class="team-placeholder">-->
+<!--            <span>+</span>-->
+<!--            <div><strong>More specialists coming soon</strong><small>Team profiles will be added from verified CVs.</small></div>-->
+<!--          </div>-->
         </div>
       </section>
 
