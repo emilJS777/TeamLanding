@@ -2,6 +2,59 @@
 import { nextTick, onBeforeUnmount, onMounted, ref, watch } from 'vue'
 import { team } from './data/team'
 
+const teamGroupDefinitions = [
+  {
+    id: 'quality-engineering',
+    title: 'Quality Engineering',
+    description:
+        'Manual testing, test automation, API validation and production-quality assurance.',
+    memberIds: [
+      'harutyun-navasardyan',
+      'argam-torozyan',
+      'zori-sargsyan'
+    ]
+  },
+  {
+    id: 'product-management',
+    title: 'Product Management',
+    description:
+        'Product strategy, discovery, roadmapping, analytics and cross-functional delivery.',
+    memberIds: [
+      'varduhi-samvelyan'
+    ]
+  },
+  {
+    id: 'mobile-engineering',
+    title: 'Mobile Engineering',
+    description:
+        'Native Android, cross-platform mobile applications and connected product experiences.',
+    memberIds: [
+      'hermine-sanasaryan',
+      'tigran-torgomyan'
+    ]
+  },
+  {
+    id: 'backend-fullstack-blockchain',
+    title: 'Backend, Full-Stack & Blockchain',
+    description:
+        'Backend platforms, Web3 infrastructure, enterprise systems and complete product development.',
+    memberIds: [
+      'emil-hambardzumyan',
+      'artur-kamalyan',
+      'taron-gevorgyan',
+      'armen-arakelyan'
+    ]
+  }
+]
+
+const teamGroups = teamGroupDefinitions.map((group) => ({
+  ...group,
+  members: group.memberIds
+      .map((memberId) => team.find((member) => member.id === memberId))
+      .filter(Boolean)
+}))
+
+
 const selectedMember = ref(null)
 const mobileMenuOpen = ref(false)
 const profileModal = ref(null)
@@ -734,24 +787,88 @@ onBeforeUnmount(() => {
           <div><p class="eyebrow"><span></span> Team</p><h2>The people behind the product</h2></div>
           <p>A focused team of specialists assembled around the needs of each product.</p>
         </div>
+        <div class="team-groups">
+          <section
+              v-for="group in teamGroups"
+              :key="group.id"
+              class="team-group"
+              :class="`team-group--size-${group.members.length}`"
+          >
+            <div class="team-group-heading">
+              <div class="team-group-title">
+                <span class="team-group-marker"></span>
+                <h3>{{ group.title }}</h3>
+              </div>
 
-        <div class="team-grid">
-          <article v-for="member in team" :key="member.id" class="member-card" role="button" tabindex="0" :aria-label="`View ${member.name} profile`" @click="openProfile(member)" @keydown.enter.self="openProfile(member)" @keydown.space.prevent.self="openProfile(member)">
-            <div class="member-image"><img :src="member.image" :alt="member.imageAlt || member.name" loading="lazy" @error="handleMemberImageError($event, member)" /></div>
-            <div class="member-content">
-              <p class="member-role">{{ member.role }}</p>
-              <h3>{{ member.name }}</h3>
-              <p>{{ member.summary }}</p>
-              <div v-if="member.tags?.length" class="member-tags"><span v-for="tag in member.tags" :key="tag">{{ tag }}</span></div>
-              <button type="button" @click.stop="openProfile(member)">View profile <span>→</span></button>
+              <p>{{ group.description }}</p>
             </div>
-          </article>
 
-<!--          <div class="team-placeholder">-->
-<!--            <span>+</span>-->
-<!--            <div><strong>More specialists coming soon</strong><small>Team profiles will be added from verified CVs.</small></div>-->
-<!--          </div>-->
+            <div class="team-grid">
+              <article
+                  v-for="member in group.members"
+                  :key="member.id"
+                  class="member-card"
+                  role="button"
+                  tabindex="0"
+                  :aria-label="`View ${member.name} profile`"
+                  @click="openProfile(member)"
+                  @keydown.enter.self="openProfile(member)"
+                  @keydown.space.prevent.self="openProfile(member)"
+              >
+                <div class="member-image">
+                  <img
+                      :src="member.image"
+                      :alt="member.imageAlt || member.name"
+                      loading="lazy"
+                      @error="handleMemberImageError($event, member)"
+                  />
+                </div>
+
+                <div class="member-content">
+                  <p class="member-role">{{ member.role }}</p>
+
+                  <h3>{{ member.name }}</h3>
+
+                  <p>{{ member.summary }}</p>
+
+                  <div v-if="member.tags?.length" class="member-tags">
+            <span
+                v-for="tag in member.tags"
+                :key="tag"
+            >
+              {{ tag }}
+            </span>
+                  </div>
+
+                  <button
+                      type="button"
+                      @click.stop="openProfile(member)"
+                  >
+                    View profile <span>→</span>
+                  </button>
+                </div>
+              </article>
+            </div>
+          </section>
         </div>
+
+<!--        <div class="team-grid">-->
+<!--          <article v-for="member in team" :key="member.id" class="member-card" role="button" tabindex="0" :aria-label="`View ${member.name} profile`" @click="openProfile(member)" @keydown.enter.self="openProfile(member)" @keydown.space.prevent.self="openProfile(member)">-->
+<!--            <div class="member-image"><img :src="member.image" :alt="member.imageAlt || member.name" loading="lazy" @error="handleMemberImageError($event, member)" /></div>-->
+<!--            <div class="member-content">-->
+<!--              <p class="member-role">{{ member.role }}</p>-->
+<!--              <h3>{{ member.name }}</h3>-->
+<!--              <p>{{ member.summary }}</p>-->
+<!--              <div v-if="member.tags?.length" class="member-tags"><span v-for="tag in member.tags" :key="tag">{{ tag }}</span></div>-->
+<!--              <button type="button" @click.stop="openProfile(member)">View profile <span>→</span></button>-->
+<!--            </div>-->
+<!--          </article>-->
+
+<!--&lt;!&ndash;          <div class="team-placeholder">&ndash;&gt;-->
+<!--&lt;!&ndash;            <span>+</span>&ndash;&gt;-->
+<!--&lt;!&ndash;            <div><strong>More specialists coming soon</strong><small>Team profiles will be added from verified CVs.</small></div>&ndash;&gt;-->
+<!--&lt;!&ndash;          </div>&ndash;&gt;-->
+<!--        </div>-->
       </section>
 
       <section class="section process-section">
