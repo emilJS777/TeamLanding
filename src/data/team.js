@@ -299,6 +299,85 @@ export const team = [
     resumeLabel: 'Download CV'
   },
   {
+    id: 'argam-torozyan',
+    name: 'Argam Torozyan',
+    role: 'Senior QA Engineer',
+    image: 'https://i.imgur.com/5STUgeb.png',
+    imageAlt: 'Argam Torozyan — Senior QA Engineer',
+    imageFallback: '/images/team/argam-torozyan-placeholder.svg',
+    summary:
+        'Senior QA engineer with 12+ years of experience across mobile, web and backend products, specializing in release quality, regression strategy, API testing and production validation.',
+    about:
+        'Argam is a senior quality assurance engineer with more than 12 years of experience testing mobile, web and backend products. He focuses on release reliability, functional and exploratory testing, regression strategy, compatibility coverage, API validation and production monitoring. He has worked across distributed product teams and high-frequency release environments.',
+    tags: ['Mobile QA', 'API Testing', 'Release Validation', 'Regression Testing'],
+    expertiseGroups: [
+      {
+        name: 'Core expertise',
+        skills: [
+          'Functional and exploratory testing', 'Regression and compatibility testing',
+          'Mobile testing for iOS and Android', 'Web and backend product testing',
+          'API testing', 'Requirement analysis', 'Release validation',
+          'Root cause analysis', 'MySQL database testing', 'Production monitoring',
+          'QA automation strategy', 'AI tools, AI agents and QA automation workflows'
+        ]
+      },
+      {
+        name: 'Tools',
+        skills: [
+          'Postman', 'Swagger', 'Kibana', 'Elastic', 'Mixpanel', 'GA4',
+          'Xcode', 'Android Studio', 'Charles Proxy', 'Jira', 'Monday.com', 'MySQL'
+        ]
+      }
+    ],
+    experience: [
+      {
+        period: 'Oct 2023 - Jun 2026',
+        company: 'MarktGuru Armenia',
+        position: 'Lead QA Specialist',
+        description:
+            'Coordinated quality assurance across iOS, Android and backend product squads. Supported weekly production releases and structured release validation. Helped reduce major production incidents through shift-left QA practices. Reduced manual regression time from approximately one day to under two hours by improving test priorities and automation coverage. Worked on automation strategy, root cause analysis and production monitoring. Used Kibana, Elastic, Mixpanel and GA4 for post-release and analytics validation.'
+      },
+      {
+        period: 'Feb 2020 - Oct 2023',
+        company: 'MarktGuru Armenia',
+        position: 'Quality Assurance Engineer',
+        description:
+            'Performed end-to-end testing across iOS, Android and backend products. Maintained functional, regression and compatibility test suites. Coordinated release validation with product and engineering teams. Investigated production issues through monitoring and log analysis.'
+      },
+      {
+        period: 'Jul 2016 - Feb 2020',
+        company: 'Smart Hex',
+        position: 'Quality Assurance Engineer',
+        description:
+            'Tested mobile and web applications. Managed compatibility coverage across devices, operating systems and screen sizes. Participated in Agile ceremonies, client demonstrations and release validation.'
+      },
+      {
+        period: 'Nov 2015 - Present',
+        company: 'Testlio',
+        position: 'Quality Assurance Engineer — Freelance / Hourly',
+        description:
+            'Performs functional and exploratory testing for international mobile and web products. Reports and validates defects in distributed, asynchronous environments.'
+      },
+      {
+        period: 'Sep 2013 - Jul 2016',
+        company: 'Instigate Mobile',
+        position: 'Quality Assurance Analyst',
+        description:
+            'Specialized in iOS and Android application testing. Created test documentation, regression suites and release-validation processes. Coordinated functional testing and supported junior QA specialists.'
+      }
+    ],
+    education: [
+      {
+        degree: "Bachelor's Degree",
+        institution: 'Goris State University — Faculty of Electronics and Energy',
+        period: '2009 - 2015'
+      }
+    ],
+    languages: ['Armenian — Native', 'Russian — Professional', 'English — Professional'],
+    linkedin: 'https://linkedin.com/in/argam-torozyan-35b471109',
+    resumeLabel: 'Download CV'
+  },
+  {
     id: 'harutyun-navasardyan',
     name: 'Harutyun Navasardyan',
     role: 'QA Engineer',
@@ -393,85 +472,7 @@ export const team = [
       }
     ]
   },
-  {
-    id: 'argam-torozyan',
-    name: 'Argam Torozyan',
-    role: 'Senior QA Engineer',
-    image: 'https://i.imgur.com/5STUgeb.png',
-    imageAlt: 'Argam Torozyan — Senior QA Engineer',
-    imageFallback: '/images/team/argam-torozyan-placeholder.svg',
-    summary:
-      'Senior QA engineer with 12+ years of experience across mobile, web and backend products, specializing in release quality, regression strategy, API testing and production validation.',
-    about:
-      'Argam is a senior quality assurance engineer with more than 12 years of experience testing mobile, web and backend products. He focuses on release reliability, functional and exploratory testing, regression strategy, compatibility coverage, API validation and production monitoring. He has worked across distributed product teams and high-frequency release environments.',
-    tags: ['Mobile QA', 'API Testing', 'Release Validation', 'Regression Testing'],
-    expertiseGroups: [
-      {
-        name: 'Core expertise',
-        skills: [
-          'Functional and exploratory testing', 'Regression and compatibility testing',
-          'Mobile testing for iOS and Android', 'Web and backend product testing',
-          'API testing', 'Requirement analysis', 'Release validation',
-          'Root cause analysis', 'MySQL database testing', 'Production monitoring',
-          'QA automation strategy', 'AI tools, AI agents and QA automation workflows'
-        ]
-      },
-      {
-        name: 'Tools',
-        skills: [
-          'Postman', 'Swagger', 'Kibana', 'Elastic', 'Mixpanel', 'GA4',
-          'Xcode', 'Android Studio', 'Charles Proxy', 'Jira', 'Monday.com', 'MySQL'
-        ]
-      }
-    ],
-    experience: [
-      {
-        period: 'Oct 2023 - Jun 2026',
-        company: 'MarktGuru Armenia',
-        position: 'Lead QA Specialist',
-        description:
-          'Coordinated quality assurance across iOS, Android and backend product squads. Supported weekly production releases and structured release validation. Helped reduce major production incidents through shift-left QA practices. Reduced manual regression time from approximately one day to under two hours by improving test priorities and automation coverage. Worked on automation strategy, root cause analysis and production monitoring. Used Kibana, Elastic, Mixpanel and GA4 for post-release and analytics validation.'
-      },
-      {
-        period: 'Feb 2020 - Oct 2023',
-        company: 'MarktGuru Armenia',
-        position: 'Quality Assurance Engineer',
-        description:
-          'Performed end-to-end testing across iOS, Android and backend products. Maintained functional, regression and compatibility test suites. Coordinated release validation with product and engineering teams. Investigated production issues through monitoring and log analysis.'
-      },
-      {
-        period: 'Jul 2016 - Feb 2020',
-        company: 'Smart Hex',
-        position: 'Quality Assurance Engineer',
-        description:
-          'Tested mobile and web applications. Managed compatibility coverage across devices, operating systems and screen sizes. Participated in Agile ceremonies, client demonstrations and release validation.'
-      },
-      {
-        period: 'Nov 2015 - Present',
-        company: 'Testlio',
-        position: 'Quality Assurance Engineer — Freelance / Hourly',
-        description:
-          'Performs functional and exploratory testing for international mobile and web products. Reports and validates defects in distributed, asynchronous environments.'
-      },
-      {
-        period: 'Sep 2013 - Jul 2016',
-        company: 'Instigate Mobile',
-        position: 'Quality Assurance Analyst',
-        description:
-          'Specialized in iOS and Android application testing. Created test documentation, regression suites and release-validation processes. Coordinated functional testing and supported junior QA specialists.'
-      }
-    ],
-    education: [
-      {
-        degree: "Bachelor's Degree",
-        institution: 'Goris State University — Faculty of Electronics and Energy',
-        period: '2009 - 2015'
-      }
-    ],
-    languages: ['Armenian — Native', 'Russian — Professional', 'English — Professional'],
-    linkedin: 'https://linkedin.com/in/argam-torozyan-35b471109',
-    resumeLabel: 'Download CV'
-  },
+
   // {
   //   id: 'zori-sargsyan',
   //   name: 'Zori Sargsyan',
