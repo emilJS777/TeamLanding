@@ -4,17 +4,6 @@ import { team } from './data/team'
 
 const teamGroupDefinitions = [
   {
-    id: 'quality-engineering',
-    title: 'Quality Engineering',
-    description:
-        'Manual testing, test automation, API validation and production-quality assurance.',
-    memberIds: [
-      'harutyun-navasardyan',
-      'argam-torozyan',
-      'zori-sargsyan'
-    ]
-  },
-  {
     id: 'product-management',
     title: 'Product Management',
     description:
@@ -31,6 +20,17 @@ const teamGroupDefinitions = [
     memberIds: [
       'hermine-sanasaryan',
       'tigran-torgomyan'
+    ]
+  },
+  {
+    id: 'quality-engineering',
+    title: 'Quality Engineering',
+    description:
+        'Manual testing, test automation, API validation and production-quality assurance.',
+    memberIds: [
+      'harutyun-navasardyan',
+      'argam-torozyan',
+      'zori-sargsyan'
     ]
   },
   {
