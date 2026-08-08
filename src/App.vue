@@ -116,7 +116,7 @@ onBeforeUnmount(() => {
         <a href="#contact" @click="mobileMenuOpen = false">Contact</a>
       </nav>
 
-      <a class="button button--small button--outline desktop-cta" href="mailto:hello@deneon.net">Discuss a project</a>
+      <a class="button button--small button--outline desktop-cta" href="mailto:deneonofficial@gmail.com">Discuss a project</a>
     </header>
 
     <main id="top">
@@ -771,7 +771,7 @@ onBeforeUnmount(() => {
         <p class="eyebrow eyebrow--center"><span></span> Start a conversation <span></span></p>
         <h2>Have a product in mind?</h2>
         <p>Tell us what you are building. We will help turn it into a clear, deliverable product.</p>
-        <a class="button button--primary" href="mailto:hello@deneon.net">Discuss your project <span>→</span></a>
+        <a class="button button--primary" href="mailto:deneonofficial@gmail.com">Discuss your project <span>→</span></a>
       </section>
     </main>
 
