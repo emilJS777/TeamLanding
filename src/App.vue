@@ -28,8 +28,8 @@ const teamGroupDefinitions = [
     description:
         'Manual testing, test automation, API validation and production-quality assurance.',
     memberIds: [
-      'harutyun-navasardyan',
       'argam-torozyan',
+      'harutyun-navasardyan',
       'zori-sargsyan'
     ]
   },
