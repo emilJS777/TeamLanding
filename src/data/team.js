@@ -569,5 +569,643 @@ export const team = [
     languages: ['Armenian — Native', 'English — Intermediate', 'Russian — Intermediate'],
     linkedin: 'https://www.linkedin.com/in/zori-sargsyan-659473109'
   },
-
+  {
+    id: 'armen-arakelyan',
+    name: 'Armen Arakelyan',
+    role: 'Senior Software Engineer',
+    image: 'https://i.imgur.com/OazzN72.png',
+    imageAlt: 'Armen Arakelyan — Senior Software Engineer',
+    imageFallback: '/images/team/armen-arakelyan-placeholder.svg',
+    summary:
+      'Senior software engineer with 11+ years of experience building maintainable backend and systems software across Java and C/C++ environments.',
+    tags: ['Java', 'C++', 'Backend Systems', 'Unit Testing'],
+    aboutParagraphs: [
+      'Armen is a senior software engineer with more than 11 years of experience developing backend and systems software across Java and C/C++ technology stacks.',
+      'His background includes infrastructure monitoring and analytics, financial pricing platforms, embedded point-of-sale applications, EDA tooling and trading-system quality assurance. He is experienced in owning features end-to-end, including design, implementation, code review, automated testing and production defect resolution.',
+      'His engineering approach focuses on maintainability, performance, code quality and reliable delivery.'
+    ],
+    expertiseGroups: [
+      {
+        name: 'Core expertise',
+        skills: [
+          'Backend development', 'Systems programming', 'Java application development',
+          'C and C++ development', 'Object-oriented programming', 'Software design patterns',
+          'Feature design and implementation', 'Legacy-system modernization', 'Code review',
+          'Unit testing', 'Automated testing', 'Functional testing',
+          'Production defect investigation', 'Performance and maintainability',
+          'Cross-platform development'
+        ]
+      },
+      {
+        name: 'Languages and technologies',
+        skills: ['Java', 'C', 'C++', 'Python-based test automation', 'SQL', 'Tcl', 'STL', 'PostgreSQL basics']
+      },
+      {
+        name: 'Testing and development tools',
+        skills: [
+          'JUnit', 'cmocka', 'Git', 'CVS', 'Perforce', 'Jenkins', 'GDB', 'pgAdmin',
+          'DataGrip', 'Postman', 'Review Board', 'Jira', 'Bugzilla', 'MKS', 'Coverity'
+        ]
+      },
+      {
+        name: 'Platforms',
+        skills: ['Linux', 'macOS', 'Windows']
+      }
+    ],
+    experience: [
+      {
+        period: 'Jul 2020 – Apr 2026',
+        company: 'VMware / Broadcom',
+        roles: [
+          { position: 'Senior Engineer, ICD3', period: 'Nov 2023 – Apr 2026' },
+          { position: 'Member of Technical Staff III', period: 'Jul 2020 – Nov 2023' }
+        ],
+        note: 'VMware was acquired by Broadcom in November 2023.',
+        responsibilities: [
+          'Worked as a senior individual contributor on a backend engineering team.',
+          'Developed and supported VMware Operations tooling for infrastructure monitoring, analytics and IT operations.',
+          'Contributed to Green Score and sustainability functionality.',
+          'Worked on password-policy functionality.',
+          'Developed audit-logging mechanisms.',
+          'Investigated and fixed product defects.',
+          'Owned backend features across implementation, review and automated testing.'
+        ]
+      },
+      {
+        period: 'Aug 2018 – Apr 2020',
+        company: 'SCDM',
+        position: 'Senior Software Engineer',
+        responsibilities: [
+          'Developed backend functionality for a Java web application used for theoretical pricing of non-ABS securities.',
+          'Designed and implemented new backend features.',
+          'Diagnosed and resolved production defects.',
+          'Conducted peer code reviews.',
+          'Contributed to engineering practices and code quality.'
+        ]
+      },
+      {
+        period: 'Jan 2015 – Jul 2018',
+        company: 'Energize Global Services',
+        roles: [
+          { position: 'Software Engineer', period: 'Oct 2015 – Jul 2018' },
+          { position: 'Junior Software Engineer', period: 'Jan 2015 – Sep 2015' }
+        ],
+        responsibilities: [
+          'Developed embedded point-of-sale terminal applications for transaction processing.',
+          'Implemented customer-specific product functionality.',
+          'Ported core modules from C to C++ as part of a modernization effort.',
+          'Created unit tests with the cmocka framework.',
+          'Worked with an internal Python automation harness.',
+          'Performed automated and manual release testing.',
+          'Participated in code review and product bug fixing.'
+        ]
+      },
+      {
+        period: 'Apr 2013 – Dec 2014',
+        company: 'Mentor Graphics Armenia',
+        roles: [
+          { position: 'Junior R&D Engineer', period: 'Jul 2014 – Dec 2014' },
+          { position: 'R&D Intern', period: 'Apr 2013 – Jun 2014' }
+        ],
+        responsibilities: [
+          'Worked on the Place & Route database layer inside an EDA toolchain.',
+          'Implemented enhancements and resolved software defects.',
+          'Investigated Coverity static-analysis findings.',
+          'Ported Tcl procedures to C++.',
+          'Supported floorplanning and placement implementation.'
+        ]
+      },
+      {
+        period: 'May 2012 – Apr 2013',
+        company: 'CQG MA',
+        position: 'SQA Intern',
+        responsibilities: [
+          'Worked on quality assurance for order-processing tools in a trading application.',
+          'Created test strategies.',
+          'Performed manual, system and release testing.',
+          'Analyzed application logs.',
+          'Ran and analyzed automated regression tests.',
+          'Reported and validated defects.',
+          'Improved a Python-based test-automation harness.',
+          'Performed high-availability testing.'
+        ]
+      }
+    ],
+    education: [
+      {
+        degree: "Master's Degree in Computer Science",
+        institution: 'Yerevan State University',
+        period: '2012–2014',
+        location: 'Department of Informatics and Applied Mathematics'
+      },
+      {
+        degree: "Bachelor's Degree in Computer Science",
+        institution: 'Yerevan State University',
+        period: '2006–2010',
+        location: 'Department of Informatics and Applied Mathematics'
+      }
+    ],
+    languages: ['Armenian — Native', 'Russian — Fluent', 'English — Good', 'French — Basic'],
+    contactEmail: 'arakmen88@gmail.com',
+    cvUrl: '/resumes/armen-arakelyan-cv.pdf'
+  },
+  {
+    id: 'tigran-torgomyan',
+    name: 'Tigran Torgomyan',
+    role: 'Senior Mobile & Full-Stack Engineer',
+    image: 'https://i.imgur.com/WyHRIpt.png',
+    imageAlt: 'Tigran Torgomyan — Senior Mobile & Full-Stack Engineer',
+    imageFallback: '/images/team/tigran-torgomyan-placeholder.svg',
+    summary:
+      'Senior mobile and full-stack engineer with 11+ years of experience building iOS, web and backend products across healthcare, analytics, IoT and consumer applications.',
+    tags: ['Swift', 'iOS', 'React', 'FastAPI'],
+    aboutParagraphs: [
+      'Tigran is a senior mobile and full-stack software engineer with more than 11 years of professional development experience. He specializes in iOS applications while also working across modern web frontends and backend services.',
+      'His experience covers Swift, Objective-C, React, Next.js, Node.js, Python and FastAPI, with projects in healthcare, motion analysis, analytics, IoT, retail and financial-assistant products.',
+      'He has delivered applications end-to-end, integrated third-party services, modernized existing codebases and contributed to secure, scalable systems across mobile, web and backend environments.'
+    ],
+    expertiseGroups: [
+      {
+        name: 'Core expertise',
+        skills: [
+          'Native iOS development', 'Mobile application architecture', 'Full-stack product development',
+          'Web frontend development', 'Backend API development', 'REST API integration',
+          'WebSocket integration', 'Mobile security', 'Data encryption', 'Accessibility',
+          'Codebase modernization', 'Third-party SDK integration', 'Reusable component development',
+          'Build automation', 'Analytics interfaces', 'Healthcare applications',
+          'IoT companion applications', 'Motion and posture analysis'
+        ]
+      },
+      {
+        name: 'Mobile development',
+        skills: [
+          'Swift', 'Objective-C', 'UIKit', 'SwiftUI', 'AppKit', 'Xcode',
+          'Swift Package Manager', 'RESTful APIs', 'WebSockets', 'LiDAR',
+          'Point-cloud processing', 'MVC', 'MVVM', 'MVP', 'VIPER'
+        ]
+      },
+      {
+        name: 'Frontend development',
+        skills: ['JavaScript', 'TypeScript', 'React', 'Next.js', 'Redux', 'HTML', 'CSS']
+      },
+      {
+        name: 'Backend development',
+        skills: [
+          'Node.js', 'Python', 'FastAPI', 'Django', 'Flask', 'Ruby on Rails',
+          'ASP.NET', 'REST APIs', 'WebSockets', 'AWS Lambda', 'Prisma', 'PostgreSQL', 'SQL'
+        ]
+      },
+      {
+        name: 'Additional languages and technologies',
+        skills: ['C', 'C++', 'C#', 'XML', 'Git', 'SVN', 'Visual Studio', 'VS Code']
+      }
+    ],
+    experience: [
+      {
+        period: 'Jul 2025 – Present',
+        company: 'Spesna / CareIntel',
+        position: 'Senior Software Engineer',
+        responsibilities: [
+          'Worked on an iOS application designed for therapists.',
+          'Used the iPhone LiDAR sensor to capture range-of-motion data through point clouds.',
+          'Contributed to calculations involving human joint angles, gait and posture analysis.',
+          'Developed the frontend system for patient evaluations and therapy data.',
+          'Implemented AWS Lambda functions and FastAPI services for scalable data processing and integration.'
+        ]
+      },
+      {
+        period: 'May 2024 – Jul 2025',
+        company: 'Joocolab / insait.io',
+        position: 'Senior Software Engineer',
+        responsibilities: [
+          'Worked across frontend and backend development.',
+          'Implemented security rules for a chatbot.',
+          'Improved analytics charts and related interfaces.',
+          'Used Next.js on the frontend and Node.js on the backend.'
+        ]
+      },
+      {
+        period: 'Apr 2024 – Present',
+        company: 'Marktguru',
+        position: 'Senior Software Engineer',
+        responsibilities: [
+          'Developed new features and modernized code for Marktguru and Bonsy applications.',
+          'Improved build automation.',
+          'Worked on data encryption and accessibility functionality.',
+          'Contributed to Marktguru, a digital-leaflet and cashback application with shopping-list support.',
+          'Contributed to Bonsy, a virtual financial assistant using receipt scanning and analytics.'
+        ]
+      },
+      {
+        period: 'Feb 2020 – Apr 2024',
+        company: 'Fimetech',
+        position: 'Senior Software Engineer',
+        responsibilities: [
+          'Redesigned and improved the security of the Moxie Parent iOS application.',
+          'Worked on an iOS companion app for an IoT robot.',
+          'Contributed to backend systems using Ruby on Rails, Node.js, Django and Flask.',
+          'Contributed to React and TypeScript frontends.',
+          'Developed Python tools for Telehealth video synchronization and data processing.',
+          'Contributed to a macOS application used for Moxie content creation.'
+        ]
+      },
+      {
+        period: 'May 2014 – Feb 2020',
+        company: 'Ogma Inc.',
+        roles: [
+          { position: 'Development Team Lead', period: 'Jan 2017 – Feb 2020' },
+          { position: 'Software Engineer', period: 'May 2014 – Jan 2017' }
+        ],
+        responsibilities: [
+          'Worked on multiple iOS applications, including CityNabz, GoToMyFlight, AWorks, DataHub and CNW Mobile.',
+          'Mentored junior developers.',
+          'Contributed to .NET and Node.js backend development for integrated applications.',
+          'Redesigned and extended existing mobile applications.',
+          'Developed applications for MNX Global Logistics, CityNabz and AskZuma.',
+          'Built reusable components.',
+          'Integrated third-party SDKs.',
+          'Supported onboarding and training of new developers.'
+        ]
+      }
+    ],
+    additionalExperienceTitle: 'Additional scientific background',
+    additionalExperience: [
+      {
+        period: 'Jul 2007 – Feb 2015',
+        institution: 'Institute of Molecular Biology NAS RA',
+        position: 'Researcher',
+        description: 'Conducted research involving the analysis of blood samples and different cancer types.'
+      }
+    ],
+    portfolio: [
+      'Marktguru', 'Bonsy', 'Moxie Parent App', 'GoToMyFlight',
+      'AWorks', 'Able Freight DataHub', 'CNW Mobile', 'AskZuma'
+    ],
+    education: [
+      {
+        degree: 'Ph.D. in Molecular Biology and Cancer Research',
+        institution: 'Institute of Molecular Biology NAS RA',
+        period: '2008–2012'
+      },
+      {
+        degree: "Master's and Bachelor's Degrees in Biophysics and Bioinformatics",
+        institution: 'Yerevan State University',
+        period: '2002–2008'
+      }
+    ],
+    training: [
+      {
+        program: 'Software development courses',
+        institution: 'OKC',
+        period: 'Feb 2014 – May 2014',
+        skills: ['C#', 'JavaScript', 'MSSQL', 'HTML', 'CSS', 'Objective-C', 'Swift', 'iOS']
+      },
+      {
+        program: 'Software development courses',
+        institution: 'Microsoft Innovation Center',
+        period: 'May 2013 – Feb 2014',
+        skills: ['C#', 'C++', 'SQL', 'Object-Oriented Programming', 'Design Patterns']
+      }
+    ],
+    languages: ['Armenian — Native', 'English — Fluent', 'Russian — Fluent'],
+    contactEmail: 'tigran.torgomyan@gmail.com',
+    cvUrl: '/resumes/tigran-torgomyan-cv.pdf'
+  },
+  {
+    id: 'hermine-sanasaryan',
+    name: 'Hermine Sanasaryan',
+    role: 'Senior Android Developer',
+    image: 'https://i.imgur.com/J4lHdaZ.png',
+    imageAlt: 'Hermine Sanasaryan — Senior Android Developer',
+    summary:
+        'Senior Android developer experienced in building stable mobile products, automated release workflows and connected-device applications with Kotlin and Java.',
+    tags: ['Kotlin', 'Java', 'Android SDK', 'Jetpack'],
+    aboutParagraphs: [
+      'Hermine is a senior Android engineer with extensive experience delivering mobile applications across video communication, wearable devices, game development and media-processing products.',
+      'She specializes in Android architecture, full software-development lifecycle ownership, release automation and production stability.',
+      'Her work combines product delivery with a strong focus on maintainability, developer efficiency, security and reliable user experiences.'
+    ],
+    expertiseGroups: [
+      {
+        name: 'Core expertise',
+        skills: [
+          'Native Android development',
+          'Mobile application architecture',
+          'End-to-end product delivery',
+          'Software Development Lifecycle',
+          'Release engineering',
+          'Production stability',
+          'Codebase maintainability',
+          'Mobile security',
+          'Performance optimization',
+          'Video communication',
+          'Media processing',
+          'Connected devices',
+          'Wearable applications',
+          'Game development'
+        ]
+      },
+      {
+        name: 'Android development',
+        skills: [
+          'Kotlin',
+          'Java',
+          'Android SDK',
+          'Jetpack components',
+          'Android NDK',
+          'Firebase',
+          'Zoom SDK',
+          'libGDX'
+        ]
+      },
+      {
+        name: 'Automation and analytics',
+        skills: [
+          'GitHub Actions',
+          'Fastlane',
+          'Dependabot',
+          'Mixpanel',
+          'Adjust',
+          'User Centrics'
+        ]
+      },
+      {
+        name: 'Development workflow',
+        skills: [
+          'AI-assisted development',
+          'GitHub Copilot',
+          'Gemini',
+          'Claude Code'
+        ]
+      }
+    ],
+    experience: [
+      {
+        period: 'Feb 2019 – Present',
+        company: 'Marktguru',
+        position: 'Senior Android Developer',
+        responsibilities: [
+          'Led end-to-end Android application development and owned architecture decisions.',
+          'Worked across the full software-development lifecycle from product concept to production and maintenance.',
+          'Established and improved automated release pipelines for reliable and repeatable deployments.',
+          'Designed dependency-automation workflows to improve security and reduce maintenance effort.',
+          'Maintained approximately 99.95% crash-free production sessions across multiple years.',
+          'Worked with product, design and backend teams to align technical implementation with product goals.'
+        ]
+      },
+      {
+        period: 'Nov 2016 – Feb 2018',
+        company: 'Cloud Communications and Computing Corp.',
+        position: 'Android Developer',
+        responsibilities: [
+          'Developed a video-calling Android application.',
+          'Integrated the Zoom SDK.',
+          'Implemented real-time audio and video communication functionality.'
+        ]
+      },
+      {
+        period: 'Apr 2015 – Nov 2016',
+        company: 'Energize Global Services',
+        position: 'Android Developer',
+        responsibilities: [
+          'Contributed to a video-editing application.',
+          'Implemented media-processing and editing functionality.',
+          'Worked on application performance optimization.',
+          'Developed a mobile security library using the Android NDK.',
+          'Created validation workflows supported by Bash-based testing scripts.'
+        ]
+      },
+      {
+        period: 'Jan 2014 – Apr 2015',
+        company: 'Altacode LLC',
+        position: 'Android Developer',
+        responsibilities: [
+          'Contributed across the development lifecycle of multiple mobile applications.',
+          'Developed an application for a wearable smart-glass device connected to a Sensoplex board.',
+          'Implemented real-time data interaction and connected-device communication.',
+          'Contributed to Android game development using the libGDX framework.'
+        ]
+      },
+      {
+        period: 'Jul 2013 – Jan 2014',
+        company: 'Altacode LLC',
+        position: 'Software Developer',
+        responsibilities: [
+          'Developed a Tetris game with WPF during a .NET internship.',
+          'Developed a cashier application using ASP.NET.'
+        ]
+      }
+    ],
+    education: [
+      {
+        degree: 'Bachelor of Mathematics and Mechanics',
+        institution: 'Yerevan State University',
+        period: '2009–2013'
+      }
+    ],
+    contactEmail: 'bhermine1992@gmail.com',
+    cvUrl: '/resumes/hermine-sanasaryan-cv.pdf'
+  },
+  {
+    id: 'varduhi-samvelyan',
+    name: 'Varduhi Samvelyan',
+    role: 'Product Manager',
+    image: 'https://i.imgur.com/ItGT5Cm.png',
+    imageAlt: 'Varduhi Samvelyan — Product Manager',
+    summary:
+        'Product manager with 6+ years of experience leading digital products from discovery to delivery through strategy, analytics and cross-functional collaboration.',
+    tags: ['Product Strategy', 'Roadmapping', 'Analytics', 'OKRs'],
+    aboutParagraphs: [
+      'Varduhi is a product manager with more than six years of experience scaling digital products in cross-functional and multicultural environments.',
+      'She works across the complete product lifecycle, connecting customer needs, business priorities, engineering execution and operational scalability.',
+      'Her background combines product strategy, data-informed decision-making, delivery management and hands-on quality assurance experience.'
+    ],
+    expertiseGroups: [
+      {
+        name: 'Core expertise',
+        skills: [
+          'Product strategy',
+          'Product roadmapping',
+          'Product discovery',
+          'End-to-end product lifecycle',
+          'Roadmap definition and execution',
+          'Data-informed prioritization',
+          'Continuous validation',
+          'Product adoption',
+          'Customer journey design',
+          'Product workflow definition',
+          'Stakeholder alignment',
+          'Cross-functional collaboration',
+          'International product initiatives',
+          'Digital-product scaling'
+        ]
+      },
+      {
+        name: 'Product delivery',
+        skills: [
+          'Cross-functional project delivery',
+          'Delivery process optimization',
+          'Agile operating models',
+          'Autonomous product squads',
+          'Operational scalability',
+          'OKR coaching',
+          'Performance coaching',
+          'Engineering collaboration',
+          'Business stakeholder communication',
+          'Marketing collaboration',
+          'Operations coordination'
+        ]
+      },
+      {
+        name: 'Product analytics',
+        skills: [
+          'Mixpanel',
+          'Google Analytics',
+          'Amplitude',
+          'FullStory',
+          'Airship',
+          'UserCentrics',
+          'Data-driven reporting'
+        ]
+      },
+      {
+        name: 'Product and AI workflow',
+        skills: [
+          'AI-powered product management',
+          'AI Agents',
+          'Claude Code',
+          'Cursor',
+          'n8n',
+          'NotebookLM'
+        ]
+      },
+      {
+        name: 'Collaboration and QA tools',
+        skills: [
+          'GitHub',
+          'Jira',
+          'Confluence',
+          'Monday.com',
+          'TestRail'
+        ]
+      }
+    ],
+    experience: [
+      {
+        period: '2023 – Present',
+        company: 'Marktguru',
+        position: 'Product Manager',
+        responsibilities: [
+          'Owned product strategy and end-to-end lifecycle for key product areas.',
+          'Balanced customer needs, operational constraints and business priorities to identify high-impact opportunities.',
+          'Used data-informed prioritization and continuous validation to improve product outcomes.',
+          'Contributed to a reported 30% increase in user retention and 10% faster delivery during scale-up.',
+          'Defined product logic, workflows and prioritization decisions for core user journeys.',
+          'Aligned customer problems, operational scalability and long-term product objectives.',
+          'Applied AI-powered product-management practices to product discovery, research and execution.'
+        ]
+      },
+      {
+        period: '2022 – 2023',
+        company: 'Marktguru',
+        position: 'Project Delivery Manager',
+        responsibilities: [
+          'Led cross-functional product initiatives across globally distributed teams.',
+          'Aligned engineering, operations and business stakeholders around shared delivery outcomes.',
+          'Helped transition teams into smaller autonomous squads.',
+          'Contributed to a reported 20% increase in delivery efficiency.',
+          'Introduced scalable product-delivery processes and agile operating models.',
+          'Supported the organization’s transition from startup-stage execution to enterprise-level operations.'
+        ]
+      },
+      {
+        period: '2020 – 2022',
+        company: 'Marktguru',
+        position: 'Quality Assurance Engineer',
+        responsibilities: [
+          'Worked across more than five projects, including two mobile applications and three web platforms.',
+          'Created structured and reusable test cases from the ground up.',
+          'Designed and implemented a streamlined bug-reporting workflow.',
+          'Improved communication between QA and development teams.',
+          'Contributed to a reported reduction of more than 30% in issue-resolution time.',
+          'Provided manual and exploratory testing feedback for continuous-integration workflows.'
+        ]
+      },
+      {
+        period: '2020 – 2024',
+        company: 'Testlio',
+        position: 'Quality Assurance Engineer — Remote',
+        responsibilities: [
+          'Worked with globally distributed QA and product teams.',
+          'Contributed to reliable releases for large-scale consumer web and mobile platforms.',
+          'Participated in projects involving Meetup and Quizlet.'
+        ]
+      }
+    ],
+    additionalExperienceTitle: 'Additional professional experience',
+    additionalExperience: [
+      {
+        period: '2021',
+        institution: 'The United Nations',
+        position: 'Translator / Interpreter',
+        description:
+            'Facilitated communication for a visiting delegation from Belgium’s Fedasil agency during monitoring missions, multilingual meetings and field visits.'
+      }
+    ],
+    education: [
+      {
+        degree: 'Master of Arts in Interpretation and Translation',
+        institution: 'American University of Armenia',
+        period: ''
+      },
+      {
+        degree: 'Master of Arts in Linguistics',
+        institution: 'Slavonic-Armenian University',
+        period: ''
+      }
+    ],
+    training: [
+      {
+        program: 'Product Leadership and Strategy',
+        institution: 'CC4PM Command Course',
+        period: '',
+        skills: [
+          'Product Leadership',
+          'Product Strategy',
+          'Product Execution'
+        ]
+      },
+      {
+        program: 'AI and Data for Product Management',
+        institution: 'Professional certification',
+        period: '',
+        skills: [
+          'AI for Product Management',
+          'Data-Driven Product Management'
+        ]
+      },
+      {
+        program: 'Certified OKR Coach / Master Advanced',
+        institution: 'DigitalWinners, Germany',
+        period: '',
+        skills: [
+          'OKRs',
+          'Performance Coaching'
+        ]
+      },
+      {
+        program: 'Leadership in Tech Club',
+        institution: 'Graduate and member',
+        period: ''
+      }
+    ],
+    languages: [
+      'Armenian — Native',
+      'English — Fluent',
+      'Russian — Proficient',
+      'German — Intermediate'
+    ],
+    contactEmail: 'varduhi.samvelyan@gmail.com',
+    cvUrl: '/resumes/varduhi-samvelyan-cv.pdf'
+  },
 ]

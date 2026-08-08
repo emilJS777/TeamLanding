@@ -794,9 +794,15 @@ onBeforeUnmount(() => {
               <section><h3>About</h3><template v-if="selectedMember.aboutParagraphs?.length"><p v-for="paragraph in selectedMember.aboutParagraphs" :key="paragraph">{{ paragraph }}</p></template><p v-else>{{ selectedMember.about }}</p></section>
               <section v-if="selectedMember.experience?.length"><h3>Experience</h3><div class="timeline">
                 <div v-for="item in selectedMember.experience" :key="item.period + item.company" class="timeline-item">
-                  <span>{{ item.period }}</span><div><h4>{{ item.position }}</h4><strong>{{ item.company }}</strong><p v-if="item.description">{{ item.description }}</p><ul v-if="item.responsibilities?.length" class="timeline-responsibilities"><li v-for="responsibility in item.responsibilities" :key="responsibility">{{ responsibility }}</li></ul></div>
+                  <span>{{ item.period }}</span><div><h4 v-if="item.position">{{ item.position }}</h4><strong>{{ item.company }}</strong><div v-if="item.roles?.length" class="timeline-roles"><div v-for="role in item.roles" :key="role.position + role.period"><h4>{{ role.position }}</h4><span>{{ role.period }}</span></div></div><p v-if="item.note" class="timeline-note">{{ item.note }}</p><p v-if="item.description">{{ item.description }}</p><ul v-if="item.responsibilities?.length" class="timeline-responsibilities"><li v-for="responsibility in item.responsibilities" :key="responsibility">{{ responsibility }}</li></ul></div>
                 </div>
               </div></section>
+              <section v-if="selectedMember.additionalExperience?.length"><h3>{{ selectedMember.additionalExperienceTitle || 'Additional experience' }}</h3><div class="profile-education">
+                <article v-for="item in selectedMember.additionalExperience" :key="item.position + item.institution">
+                  <span>{{ item.period }}</span><div><h4>{{ item.position }}</h4><strong>{{ item.institution }}</strong><p v-if="item.description">{{ item.description }}</p></div>
+                </article>
+              </div></section>
+              <section v-if="selectedMember.portfolio?.length"><h3>Selected application portfolio</h3><div class="profile-portfolio"><span v-for="application in selectedMember.portfolio" :key="application">{{ application }}</span></div></section>
               <section v-if="selectedMember.education?.length"><h3>Education</h3><div class="profile-education">
                 <article v-for="item in selectedMember.education" :key="item.degree + item.institution">
                   <span>{{ item.period }}</span><div><h4>{{ item.degree }}</h4><strong>{{ item.institution }}</strong><p v-if="item.location">{{ item.location }}</p></div>
@@ -804,7 +810,7 @@ onBeforeUnmount(() => {
               </div></section>
               <section v-if="selectedMember.training?.length"><h3>Additional training</h3><div class="profile-education">
                 <article v-for="item in selectedMember.training" :key="item.program + item.institution">
-                  <span>{{ item.period }}</span><div><h4>{{ item.program }}</h4><strong>{{ item.institution }}</strong></div>
+                  <span>{{ item.period }}</span><div><h4>{{ item.program }}</h4><strong>{{ item.institution }}</strong><div v-if="item.skills?.length" class="tag-list tag-list--profile training-tags"><span v-for="skill in item.skills" :key="skill">{{ skill }}</span></div></div>
                 </article>
               </div></section>
               <section v-if="selectedMember.projects?.length"><h3>Selected projects</h3><div class="profile-projects">
@@ -820,7 +826,7 @@ onBeforeUnmount(() => {
                 <div v-for="group in selectedMember.expertiseGroups" :key="group.name" class="expertise-group"><h4>{{ group.name }}</h4><div class="tag-list tag-list--profile"><span v-for="skill in group.skills" :key="skill">{{ skill }}</span></div></div>
               </div></section>
               <section v-if="selectedMember.languages?.length"><h3>Languages</h3><ul><li v-for="language in selectedMember.languages" :key="language">{{ language }}</li></ul></section>
-              <section v-if="selectedMember.github || selectedMember.linkedin"><h3>Links</h3><div class="profile-links"><a v-if="selectedMember.github" :href="selectedMember.github" target="_blank" rel="noopener noreferrer">GitHub ↗</a><a v-if="selectedMember.linkedin" :href="selectedMember.linkedin" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a></div></section>
+              <section v-if="selectedMember.github || selectedMember.linkedin || selectedMember.contactEmail || selectedMember.cvUrl"><h3>Links</h3><div class="profile-links"><a v-if="selectedMember.github" :href="selectedMember.github" target="_blank" rel="noopener noreferrer">GitHub ↗</a><a v-if="selectedMember.linkedin" :href="selectedMember.linkedin" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a><a v-if="selectedMember.contactEmail" :href="`mailto:${selectedMember.contactEmail}`">Email</a><a v-if="selectedMember.cvUrl" :href="selectedMember.cvUrl" target="_blank" rel="noopener noreferrer">Download CV</a></div></section>
 <!--              <a v-if="selectedMember.resume" class="button button&#45;&#45;primary button&#45;&#45;full" :href="selectedMember.resume" target="_blank" rel="noopener noreferrer">{{ selectedMember.resumeLabel || 'View full resume' }} <span>↗</span></a>-->
             </aside>
           </div>
