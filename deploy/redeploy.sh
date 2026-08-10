@@ -5,11 +5,13 @@ readonly REPOSITORY_URL="https://github.com/emilJS777/TeamLanding.git"
 readonly BRANCH="main"
 readonly APP_ROOT="/opt/deneon/team-landing"
 readonly SOURCE_DIR="${APP_ROOT}/source"
-readonly WEB_ROOT="/var/www/team.deneon.net"
 readonly LOCK_FILE="/run/lock/redeploy-team-landing.lock"
-readonly BUILD_IMAGE="node:24-alpine"
 readonly NAMESPACE="team-landing"
 readonly DOMAIN="team.deneon.net"
+readonly FRONTEND_IMAGE_NAME="docker.io/library/team-landing"
+readonly API_IMAGE_NAME="docker.io/library/team-landing-api"
+
+rendered_manifest=""
 
 log() {
   printf '[team-landing] %s\n' "$*"
@@ -17,50 +19,74 @@ log() {
 
 fail() {
   log "ERROR: $*" >&2
-  exit 1
+  return 1
 }
 
-atomic_link() {
-  local target="$1"
-  local link="$2"
-  ln -s "$target" "${link}.new"
-  mv -Tf "${link}.new" "$link"
+cleanup() {
+  if [[ -n "$rendered_manifest" && -f "$rendered_manifest" ]]; then
+    rm -f "$rendered_manifest"
+  fi
 }
 
-check_https() {
+diagnose() {
+  local exit_code=$?
+  local line_number="${1:-unknown}"
+  trap - ERR
+  log "deployment failed at line ${line_number}; collecting safe diagnostics" >&2
+  if command -v k3s >/dev/null 2>&1 && k3s kubectl get namespace "$NAMESPACE" >/dev/null 2>&1; then
+    k3s kubectl get deployment -n "$NAMESPACE" -o wide >&2 || true
+    k3s kubectl get pods -n "$NAMESPACE" -o wide >&2 || true
+    k3s kubectl get events -n "$NAMESPACE" --sort-by='.lastTimestamp' | tail -n 40 >&2 || true
+    k3s kubectl logs -n "$NAMESPACE" deployment/team-landing-api --tail=100 >&2 || true
+  fi
+  exit "$exit_code"
+}
+
+check_https_path() {
+  local path="$1"
   curl --fail --silent --show-error --location \
     --retry 8 --retry-delay 3 --retry-all-errors \
-    --max-time 15 "https://${DOMAIN}/" >/dev/null
+    --max-time 15 "https://${DOMAIN}${path}" >/dev/null
+}
+
+verify_image() {
+  local image="$1"
+  k3s ctr images list -q | grep -Fqx "$image" || fail "k3s image store does not contain ${image}"
+}
+
+verify_smtp_secret() {
+  local state
+  state="$(k3s kubectl get secret team-landing-smtp -n "$NAMESPACE" \
+    -o go-template='{{if index .data "SMTP_PASSWORD"}}present{{else}}missing{{end}}')"
+  [[ "$state" == "present" ]] || fail "team-landing-smtp/SMTP_PASSWORD is missing"
+  log "SMTP Secret and required key are present"
 }
 
 rollback() {
-  local current_target previous_target
-  current_target="$(readlink "${WEB_ROOT}/current" 2>/dev/null || true)"
-  previous_target="$(readlink "${WEB_ROOT}/previous" 2>/dev/null || true)"
-
-  [[ "$current_target" =~ ^build-[ab]$ ]] || fail "current release is unavailable"
-  [[ "$previous_target" =~ ^build-[ab]$ ]] || fail "previous release is unavailable"
-  [[ -f "${WEB_ROOT}/${previous_target}/index.html" ]] || fail "previous release is incomplete"
-
-  atomic_link "$previous_target" "${WEB_ROOT}/current"
-  atomic_link "$current_target" "${WEB_ROOT}/previous"
-
-  check_https || {
-    atomic_link "$current_target" "${WEB_ROOT}/current"
-    atomic_link "$previous_target" "${WEB_ROOT}/previous"
-    fail "rollback health check failed; restored original release"
-  }
-
-  log "rollback complete: ${previous_target} is active"
+  log "rolling back frontend and API Deployments"
+  k3s kubectl rollout undo deployment/team-landing -n "$NAMESPACE"
+  k3s kubectl rollout undo deployment/team-landing-api -n "$NAMESPACE"
+  k3s kubectl rollout status deployment/team-landing -n "$NAMESPACE" --timeout=180s
+  k3s kubectl rollout status deployment/team-landing-api -n "$NAMESPACE" --timeout=180s
+  check_https_path "/"
+  check_https_path "/api/healthz"
+  log "rollback complete"
 }
 
-[[ "${EUID}" -eq 0 ]] || fail "run as root"
+trap cleanup EXIT
+trap 'diagnose "$LINENO"' ERR
 
-for command_name in curl docker flock git k3s rsync; do
-  command -v "$command_name" >/dev/null || fail "required command not found: ${command_name}"
+[[ "${EUID}" -eq 0 ]] || fail "run as root"
+[[ "$#" -le 1 ]] || fail "usage: $0 [--rollback]"
+[[ "$#" -eq 0 || "${1:-}" == "--rollback" ]] || fail "usage: $0 [--rollback]"
+
+for command_name in curl docker flock git grep k3s mktemp sed tail; do
+  command -v "$command_name" >/dev/null 2>&1 || fail "required command not found: ${command_name}"
 done
 
-mkdir -p "$APP_ROOT" "$WEB_ROOT/build-a" "$WEB_ROOT/build-b"
+k3s kubectl version --client >/dev/null 2>&1 || fail "k3s kubectl is unavailable"
+
+mkdir -p "$APP_ROOT"
 exec 9>"$LOCK_FILE"
 flock -n 9 || fail "another redeploy is already running"
 
@@ -68,96 +94,72 @@ if [[ "${1:-}" == "--rollback" ]]; then
   rollback
   exit 0
 fi
-[[ "$#" -eq 0 ]] || fail "usage: $0 [--rollback]"
 
-cleanup() {
-  if [[ -d "$SOURCE_DIR" ]]; then
-    rm -rf "${SOURCE_DIR}/node_modules" "${SOURCE_DIR}/dist"
-  fi
-}
-trap cleanup EXIT
-
-if [[ ! -d "${SOURCE_DIR}/.git" ]]; then
-  log "cloning ${BRANCH}"
-  git clone --branch "$BRANCH" --single-branch "$REPOSITORY_URL" "$SOURCE_DIR"
-else
-  [[ "$(git -C "$SOURCE_DIR" remote get-url origin)" == "$REPOSITORY_URL" ]] || \
-    fail "unexpected Git origin in ${SOURCE_DIR}"
-fi
+docker info >/dev/null 2>&1 || fail "Docker daemon is unavailable"
+[[ -d "${SOURCE_DIR}/.git" ]] || fail "Git repository is missing: ${SOURCE_DIR}"
+[[ "$(git -C "$SOURCE_DIR" remote get-url origin)" == "$REPOSITORY_URL" ]] || \
+  fail "unexpected Git origin in ${SOURCE_DIR}"
 
 log "updating source from origin/${BRANCH}"
 git -C "$SOURCE_DIR" fetch --prune origin "$BRANCH"
 git -C "$SOURCE_DIR" checkout -B "$BRANCH" "origin/${BRANCH}"
 git -C "$SOURCE_DIR" clean -fdx
 
-log "building with ${BUILD_IMAGE}"
-docker run --rm \
-  --name team-landing-build \
-  --mount "type=bind,src=${SOURCE_DIR},dst=/app" \
-  --workdir /app \
-  --env CI=true \
-  "$BUILD_IMAGE" \
-  sh -lc 'npm ci --no-audit --no-fund && npm run build'
+for required_file in Dockerfile Dockerfile.api package.json package-lock.json deploy/k8s.yaml; do
+  [[ -f "${SOURCE_DIR}/${required_file}" ]] || fail "required file is missing: ${required_file}"
+done
 
-log "building project inquiry API image"
-docker build \
-  --tag team-landing-api:local \
+readonly DEPLOY_TAG="$(git -C "$SOURCE_DIR" rev-parse --short=12 HEAD)"
+readonly FRONTEND_IMAGE="${FRONTEND_IMAGE_NAME}:${DEPLOY_TAG}"
+readonly API_IMAGE="${API_IMAGE_NAME}:${DEPLOY_TAG}"
+
+verify_smtp_secret
+
+log "building frontend image ${FRONTEND_IMAGE}"
+docker build --pull \
+  --tag "$FRONTEND_IMAGE" \
+  --file "${SOURCE_DIR}/Dockerfile" \
+  "$SOURCE_DIR"
+
+log "building API image ${API_IMAGE}"
+docker build --pull \
+  --tag "$API_IMAGE" \
   --file "${SOURCE_DIR}/Dockerfile.api" \
   "$SOURCE_DIR"
 
-log "importing project inquiry API image into k3s"
-docker save team-landing-api:local | k3s ctr images import -
+log "importing both images into k3s containerd"
+docker save "$FRONTEND_IMAGE" "$API_IMAGE" | k3s ctr images import -
 
-[[ -s "${SOURCE_DIR}/dist/index.html" ]] || fail "build did not produce dist/index.html"
-[[ -d "${SOURCE_DIR}/dist/assets" ]] || fail "build did not produce dist/assets"
+verify_image "$FRONTEND_IMAGE"
+verify_image "$API_IMAGE"
+log "both images are available in k3s"
 
-current_target="$(readlink "${WEB_ROOT}/current" 2>/dev/null || true)"
-case "$current_target" in
-  build-a) next_target="build-b" ;;
-  build-b) next_target="build-a" ;;
-  *) next_target="build-a" ;;
-esac
+rendered_manifest="$(mktemp /tmp/team-landing-k8s.XXXXXX.yaml)"
+sed \
+  -e "s|__FRONTEND_IMAGE__|${FRONTEND_IMAGE}|g" \
+  -e "s|__API_IMAGE__|${API_IMAGE}|g" \
+  "${SOURCE_DIR}/deploy/k8s.yaml" >"$rendered_manifest"
 
-log "publishing to ${next_target}"
-rsync -a --delete "${SOURCE_DIR}/dist/" "${WEB_ROOT}/${next_target}/"
+grep -Fq "image: ${FRONTEND_IMAGE}" "$rendered_manifest" || fail "frontend image was not rendered"
+grep -Fq "image: ${API_IMAGE}" "$rendered_manifest" || fail "API image was not rendered"
 
-if [[ "$current_target" =~ ^build-[ab]$ ]]; then
-  atomic_link "$current_target" "${WEB_ROOT}/previous"
-fi
-atomic_link "$next_target" "${WEB_ROOT}/current"
+log "applying k3s resources for commit ${DEPLOY_TAG}"
+k3s kubectl apply -f "$rendered_manifest"
 
-restore_previous() {
-  if [[ "$current_target" =~ ^build-[ab]$ ]]; then
-    atomic_link "$current_target" "${WEB_ROOT}/current"
-    log "restored ${current_target} after failed deployment" >&2
-  fi
-}
+log "waiting for frontend rollout"
+k3s kubectl rollout status deployment/team-landing -n "$NAMESPACE" --timeout=180s
+log "waiting for API rollout"
+k3s kubectl rollout status deployment/team-landing-api -n "$NAMESPACE" --timeout=180s
+k3s kubectl wait certificate/team-landing-tls -n "$NAMESPACE" \
+  --for=condition=Ready --timeout=180s
 
-log "applying isolated k3s resources"
-if ! k3s kubectl apply -f "${SOURCE_DIR}/deploy/k8s.yaml"; then
-  restore_previous
-  fail "kubectl apply failed"
-fi
-k3s kubectl rollout restart deployment/team-landing-api -n "$NAMESPACE"
-if ! k3s kubectl rollout status deployment/team-landing deployment/team-landing-api -n "$NAMESPACE" --timeout=180s; then
-  restore_previous
-  fail "deployment rollout failed"
-fi
-if ! k3s kubectl wait certificate/team-landing-tls -n "$NAMESPACE" \
-  --for=condition=Ready --timeout=180s; then
-  restore_previous
-  fail "TLS certificate did not become ready"
-fi
-
-if ! check_https; then
-  restore_previous
-  fail "HTTPS health check failed"
-fi
+check_https_path "/"
+check_https_path "/start-project"
+check_https_path "/contact"
+check_https_path "/api/healthz"
 
 http_status="$(curl --silent --output /dev/null --write-out '%{http_code}' --max-time 15 "http://${DOMAIN}/")"
-[[ "$http_status" == "301" || "$http_status" == "308" ]] || {
-  restore_previous
+[[ "$http_status" == "301" || "$http_status" == "308" ]] || \
   fail "expected HTTP redirect, received ${http_status}"
-}
 
-log "deployment complete: https://${DOMAIN} (${next_target}, commit $(git -C "$SOURCE_DIR" rev-parse --short HEAD))"
+log "deployment complete: https://${DOMAIN} (commit ${DEPLOY_TAG})"

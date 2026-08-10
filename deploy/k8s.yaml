@@ -68,7 +68,10 @@ metadata:
 spec:
   replicas: 1
   strategy:
-    type: Recreate
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 0
+      maxSurge: 1
   selector:
     matchLabels:
       app.kubernetes.io/name: team-landing
@@ -79,8 +82,8 @@ spec:
     spec:
       containers:
         - name: nginx
-          image: nginx:1.28-alpine
-          imagePullPolicy: IfNotPresent
+          image: __FRONTEND_IMAGE__
+          imagePullPolicy: Never
           command: ["nginx", "-g", "daemon off;"]
           ports:
             - name: http
@@ -117,9 +120,6 @@ spec:
             capabilities:
               drop: ["ALL"]
           volumeMounts:
-            - name: site
-              mountPath: /srv/site
-              readOnly: true
             - name: nginx-config
               mountPath: /etc/nginx/nginx.conf
               subPath: nginx.conf
@@ -133,10 +133,6 @@ spec:
             - name: cache
               mountPath: /var/cache/nginx
       volumes:
-        - name: site
-          hostPath:
-            path: /var/www/team.deneon.net
-            type: Directory
         - name: nginx-config
           configMap:
             name: team-landing-nginx
@@ -188,6 +184,11 @@ metadata:
     app.kubernetes.io/name: team-landing-api
 spec:
   replicas: 1
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 0
+      maxSurge: 1
   selector:
     matchLabels:
       app.kubernetes.io/name: team-landing-api
@@ -198,7 +199,7 @@ spec:
     spec:
       containers:
         - name: api
-          image: team-landing-api:local
+          image: __API_IMAGE__
           imagePullPolicy: Never
           ports:
             - name: http
@@ -208,7 +209,7 @@ spec:
                 name: team-landing-api
             - secretRef:
                 name: team-landing-smtp
-                optional: true
+                optional: false
           readinessProbe:
             httpGet:
               path: /api/healthz

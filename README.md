@@ -53,6 +53,14 @@ SMTP errors, HTML escaping and successful inquiry IDs.
 Contact tests also cover subject allowlisting, minimum message length, recipient
 protection, honeypot handling, rate limiting and successful message IDs.
 
+## Production images
+
+`Dockerfile` builds and tests the Vue frontend, then copies `dist` into the
+non-root Nginx runtime layout. `Dockerfile.api` packages the Express API. The
+production redeploy script tags both images with the Git commit, imports them
+into k3s containerd, verifies their presence and only then applies Kubernetes
+resources. See `DEPLOYMENT.md` for recovery, verification, logs and rollback.
+
 ## Environment variables
 
 See `.env.example`. `SMTP_PASSWORD` and every other non-`VITE_` variable are

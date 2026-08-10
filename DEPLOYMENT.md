@@ -1,35 +1,48 @@
-# TeamLanding deployment
+# TeamLanding production deployment
 
-TeamLanding runs in the isolated `team-landing` k3s namespace. Traefik routes
-`/api` to the Node inquiry API and all other paths to the non-root Nginx static
-site. Nginx provides SPA history fallback, so `/start-project` and `/contact`
-can be refreshed or opened directly. cert-manager manages the existing TLS certificate.
+TeamLanding runs in the isolated `team-landing` namespace on a single-node k3s
+host. Traefik routes `/api` to the Express API Service and all other paths to
+the Nginx frontend Service. Nginx provides SPA fallback for `/start-project`
+and `/contact`.
 
-The redeploy script builds the Vite site in `node:24-alpine`, builds
-`Dockerfile.api`, imports the API image into k3s containerd, switches the static
-build atomically and waits for both Deployments.
+## Image strategy
 
-## One-time Gmail SMTP secret
+Both workloads use immutable images tagged with the deployed Git commit:
 
-Create a Gmail App Password after enabling two-step verification. On the
-production server, put it only in Kubernetes Secret `team-landing-smtp`, key
-`SMTP_PASSWORD`:
-
-```sh
-read -rsp 'Gmail App Password: ' SMTP_APP_PASSWORD; echo
-k3s kubectl -n team-landing create secret generic team-landing-smtp \
-  --from-literal=SMTP_PASSWORD="$SMTP_APP_PASSWORD" \
-  --dry-run=client -o yaml | k3s kubectl apply -f -
-unset SMTP_APP_PASSWORD
+```text
+docker.io/library/team-landing:<12-character-commit>
+docker.io/library/team-landing-api:<12-character-commit>
 ```
 
-The non-secret SMTP host, user, recipient, sender and origin allowlist are in
-the `team-landing-api` ConfigMap in `deploy/k8s.yaml`. Do not commit a Secret
-manifest or a real `.env` file.
+`deploy/redeploy.sh` builds both images with Docker first. Only when both builds
+succeed does it export them together and import them into k3s containerd. The
+script verifies both exact references in `k3s ctr images list` before rendering
+and applying `deploy/k8s.yaml`. Changing the commit tag changes each Pod
+template, so Kubernetes creates a new ReplicaSet without relying on a mutable
+`:local` tag or a manual rollout restart.
 
-## First deployment with the API-aware script
+The earlier `ErrImageNeverPull` failure occurred because the API Deployment
+referenced `team-landing-api:local` with `imagePullPolicy: Never`, while that
+tag was absent from the k3s containerd image store.
 
-Update the installed deployment script once, then redeploy:
+## SMTP Secret
+
+The existing Secret must remain:
+
+```text
+namespace: team-landing
+name: team-landing-smtp
+key: SMTP_PASSWORD
+```
+
+Redeploy checks only that the Secret and key exist. It never creates, updates,
+prints or exports the Secret. Non-secret SMTP settings remain in the
+`team-landing-api` ConfigMap.
+
+## Recover the current production deployment
+
+Run as root on the server. This updates the installed script directly from the
+reviewed `origin/main` version, then performs the complete build and rollout:
 
 ```sh
 git -C /opt/deneon/team-landing/source fetch origin main
@@ -38,63 +51,75 @@ git -C /opt/deneon/team-landing/source show origin/main:deploy/redeploy.sh | \
 /usr/local/bin/redeploy-team-landing
 ```
 
-Subsequent deployments:
+Do not manually delete the working frontend Pod. Kubernetes replaces old Pods
+after the imported immutable images are available and removes failed old API
+Pods as the new ReplicaSet becomes healthy.
+
+## Normal redeploy
 
 ```sh
 /usr/local/bin/redeploy-team-landing
 ```
 
-## Verification
+Preflight fails before mutation when Git, Docker, the Docker daemon, k3s,
+kubectl, either Dockerfile or required source files are unavailable. On a later
+failure the script prints Deployments, Pods, recent namespace events and safe
+API logs, then exits non-zero. It never prints Secret data or Pod environment.
+
+## Verify images and rollout
+
+```sh
+k3s ctr images list | grep 'docker.io/library/team-landing'
+
+k3s kubectl get deployment/team-landing \
+  deployment/team-landing-api -n team-landing \
+  -o custom-columns=NAME:.metadata.name,IMAGE:.spec.template.spec.containers[0].image,READY:.status.readyReplicas
+
+k3s kubectl rollout status deployment/team-landing -n team-landing --timeout=180s
+k3s kubectl rollout status deployment/team-landing-api -n team-landing --timeout=180s
+k3s kubectl get pods -n team-landing -o wide
+```
+
+## Health checks
 
 ```sh
 curl -I https://team.deneon.net/
 curl -I https://team.deneon.net/start-project
 curl -I https://team.deneon.net/contact
 curl -s https://team.deneon.net/api/healthz
-curl -i https://team.deneon.net/api/contact-messages \
-  -H 'Content-Type: application/json' \
-  --data '{"fullName":"Production Check","email":"your-address@example.com","company":"","subject":"General inquiry","message":"This is an intentional production delivery check.","consent":true,"website":"","startedAt":1}'
-k3s kubectl get deploy,pod,svc,ingress,certificate -n team-landing
-k3s kubectl rollout status deployment/team-landing deployment/team-landing-api -n team-landing
 ```
 
-The health response must show `"smtpConfigured":true` before a real inquiry is
-submitted. To perform a real delivery check, use the API payload documented in
-`README.md` against `https://team.deneon.net`; that action sends a real email to
-`deneonofficial@gmail.com`.
+The API health response must contain `"status":"ok"` and
+`"smtpConfigured":true` before testing a real form submission.
 
-The same API Deployment handles `POST /api/contact-messages`. Its recipient is
-the non-secret `CONTACT_MESSAGE_RECIPIENT` value in the existing ConfigMap. No
-additional Kubernetes Secret is required.
-
-## Logs
+## Logs and diagnostics
 
 ```sh
 k3s kubectl logs -n team-landing deployment/team-landing-api --tail=100
 k3s kubectl logs -n team-landing deployment/team-landing --tail=100
 k3s kubectl logs -n team-landing deployment/team-landing-api -f
+k3s kubectl get events -n team-landing --sort-by='.lastTimestamp' | tail -n 40
 ```
 
-The API logs inquiry IDs and short error codes only. It does not log request
-bodies, client email addresses or project descriptions.
+Application logs contain message/inquiry IDs and short error codes, not request
+bodies, email addresses, SMTP credentials or project descriptions.
 
-## Restart and rollback
+## Rollback
+
+Immutable image references remain in ReplicaSet history, so the previous
+frontend and API revisions can be restored together:
 
 ```sh
-k3s kubectl rollout restart deployment/team-landing-api -n team-landing
 /usr/local/bin/redeploy-team-landing --rollback
 ```
 
-The scripted rollback atomically restores the previous static build. API code
-is packaged as a local k3s image; for an API rollback, check out the desired Git
-commit and run the redeploy script so that image and manifests are rebuilt from
-that known commit.
-
-## Secret rotation
-
-Repeat the Secret creation command with the new App Password, then run:
+Then verify:
 
 ```sh
-k3s kubectl rollout restart deployment/team-landing-api -n team-landing
-k3s kubectl rollout status deployment/team-landing-api -n team-landing
+k3s kubectl rollout status deployment/team-landing -n team-landing --timeout=180s
+k3s kubectl rollout status deployment/team-landing-api -n team-landing --timeout=180s
+curl -s https://team.deneon.net/api/healthz
 ```
+
+Keep at least the current and previous commit-tagged images in k3s containerd;
+do not prune the previous deployed image before a rollback window has passed.
