@@ -5,13 +5,18 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "dev:api": "SMTP_TRANSPORT=json node server/index.js",
+    "start:api": "node server/index.js",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "test": "node --test"
   },
   "dependencies": {
     "@vitejs/plugin-vue": "latest",
+    "express": "^5.2.1",
+    "nodemailer": "^9.0.5",
     "vite": "latest",
-    "vue": "latest"
-  },
-  "devDependencies": {}
+    "vue": "latest",
+    "vue-router": "^5.2.0"
+  }
 }

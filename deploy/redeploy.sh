@@ -99,6 +99,15 @@ docker run --rm \
   "$BUILD_IMAGE" \
   sh -lc 'npm ci --no-audit --no-fund && npm run build'
 
+log "building project inquiry API image"
+docker build \
+  --tag team-landing-api:local \
+  --file "${SOURCE_DIR}/Dockerfile.api" \
+  "$SOURCE_DIR"
+
+log "importing project inquiry API image into k3s"
+docker save team-landing-api:local | k3s ctr images import -
+
 [[ -s "${SOURCE_DIR}/dist/index.html" ]] || fail "build did not produce dist/index.html"
 [[ -d "${SOURCE_DIR}/dist/assets" ]] || fail "build did not produce dist/assets"
 
@@ -129,7 +138,8 @@ if ! k3s kubectl apply -f "${SOURCE_DIR}/deploy/k8s.yaml"; then
   restore_previous
   fail "kubectl apply failed"
 fi
-if ! k3s kubectl rollout status deployment/team-landing -n "$NAMESPACE" --timeout=180s; then
+k3s kubectl rollout restart deployment/team-landing-api -n "$NAMESPACE"
+if ! k3s kubectl rollout status deployment/team-landing deployment/team-landing-api -n "$NAMESPACE" --timeout=180s; then
   restore_previous
   fail "deployment rollout failed"
 fi
@@ -151,4 +161,3 @@ http_status="$(curl --silent --output /dev/null --write-out '%{http_code}' --max
 }
 
 log "deployment complete: https://${DOMAIN} (${next_target}, commit $(git -C "$SOURCE_DIR" rev-parse --short HEAD))"
-
