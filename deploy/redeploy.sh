@@ -51,7 +51,7 @@ check_https_path() {
 
 verify_image() {
   local image="$1"
-  k3s ctr images list -q | grep -Fqx "$image" || fail "k3s image store does not contain ${image}"
+  k3s ctr images list -q | grep -Fx "$image" >/dev/null || fail "k3s image store does not contain ${image}"
 }
 
 verify_smtp_secret() {
