@@ -13,6 +13,15 @@ const teamGroupDefinitions = [
     ]
   },
   {
+    id: 'data-science-ai',
+    title: 'Data Science & AI',
+    description:
+        'Machine learning, large language models, intelligent document processing and data-driven financial systems.',
+    memberIds: [
+      'hayk-sahakyan'
+    ]
+  },
+  {
     id: 'mobile-engineering',
     title: 'Mobile Engineering',
     description:

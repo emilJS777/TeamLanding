@@ -1455,4 +1455,191 @@ export const team = [
     contactEmail: 'varduhi.samvelyan@gmail.com',
     cvUrl: '/resumes/varduhi-samvelyan-cv.pdf'
   },
+  {
+    id: 'hayk-sahakyan',
+    name: 'Hayk Sahakyan',
+    role: 'Data Scientist / AI Engineer',
+    image: 'https://i.imgur.com/l4qR21E.png',
+    imageAlt: 'Hayk Sahakyan - Data Scientist and AI Engineer',
+    summary:
+      'Data scientist and AI engineer experienced in credit-risk modeling, NLP, intelligent document processing, LLM applications and production data tools.',
+    tags: ['Python', 'Machine Learning', 'LLM Engineering', 'NLP'],
+    aboutParagraphs: [
+      'Hayk is a data scientist and AI engineer experienced in building statistical and machine-learning systems for financial risk, including credit scorecard development and validation, loan-portfolio analysis, customer segmentation and automated data pipelines.',
+      'His work spans natural language processing, intelligent document processing, OCR, LLM applications and computer vision for complex financial and administrative documents.',
+      'Combining technical and financial experience, he also develops practical internal tools for scoring, monitoring, reporting, database operations and document-processing workflows.'
+    ],
+    experience: [
+      {
+        period: '2025 - Present',
+        company: 'Fast Bank CJSC',
+        position: 'Data Scientist Expert',
+        responsibilities: [
+          'Designs and validates credit scorecards using statistical and machine-learning methods.',
+          'Analyzes loan portfolios, default behavior and customer segments to support credit-risk decisions.',
+          'Automates data pipelines and integrates multiple data sources for risk modeling.',
+          'Builds a Streamlit-based internal dashboard for scoring, monitoring and reporting.'
+        ]
+      },
+      {
+        period: '2022 - 2024',
+        company: 'Cognaize CJSC',
+        position: 'Data Scientist',
+        responsibilities: [
+          'Developed NLP models using RNNs, LSTMs and bidirectional networks to tokenize and predict row structures in tabular data.',
+          'Designed rule-based table-structure detection for OCR documents using word and symbol coordinates and projection techniques.',
+          'Implemented multilingual BERT classification for financial-report sections.',
+          'Extracted data from handwritten and typed German forms using OCR, GPT-4 APIs and statistical analysis.',
+          'Used ResNet and domain insights to classify tax documents.',
+          'Built Streamlit and Flask tools for database queries, data uploads and API integrations.',
+          'Automated financial statement spreading with BERT and LLaMA.'
+        ]
+      },
+      {
+        period: '2021 - 2022',
+        company: 'Cognaize CJSC',
+        position: 'Python Developer',
+        responsibilities: [
+          'Collected legal and financial data with Selenium and BeautifulSoup.',
+          'Processed and structured scraped data in MongoDB.',
+          'Built pipelines for automated document generation from processed data.'
+        ]
+      },
+      {
+        period: '2020 - 2021',
+        company: 'Cognaize CJSC',
+        position: 'Financial Analyst',
+        responsibilities: [
+          'Reviewed AI-processed financial documents for data accuracy and compliance.',
+          'Contributed to financial-report data-quality improvements.'
+        ]
+      },
+      {
+        period: '2017 - 2020',
+        company: 'SCDM LLC - Deloitte Audit Analytics GmbH subsidiary',
+        position: 'Financial Analyst',
+        responsibilities: [
+          'Modeled structured-finance products, including bonds and derivatives, for data processing and analysis.',
+          'Processed and validated complex financial datasets for structured-finance teams.'
+        ]
+      }
+    ],
+    selectedExperience: [
+      {
+        name: 'Credit Risk Modeling',
+        description: 'Credit scorecard design, validation, portfolio analysis and internal monitoring tools for financial risk workflows.'
+      },
+      {
+        name: 'Intelligent Document Processing',
+        description: 'OCR, table-structure detection, document classification and extraction from complex financial and administrative documents.'
+      },
+      {
+        name: 'LLM and NLP Applications',
+        description: 'BERT and LLaMA workflows, multilingual classification, RAG, fine-tuning and agent-oriented application development.'
+      },
+      {
+        name: 'Data Applications',
+        description: 'Streamlit and Flask tools for scoring, reporting, database operations, document generation and API integrations.'
+      }
+    ],
+    expertiseGroups: [
+      {
+        name: 'Programming and application development',
+        skills: ['Python', 'NumPy', 'Pandas', 'R', 'Flask', 'Streamlit', 'HTML5', 'XML']
+      },
+      {
+        name: 'Machine learning and deep learning',
+        skills: ['PyTorch', 'TensorFlow', 'Scikit-learn', 'Machine Learning', 'Deep Learning', 'Statistical Modeling', 'Credit Risk Modeling']
+      },
+      {
+        name: 'LLM and NLP engineering',
+        skills: ['Natural Language Processing', 'Transformers', 'BERT', 'LLaMA', 'RAG', 'QLoRA', 'LLM Fine-tuning', 'AI Agents', 'Reasoning Workflows', 'GPT-4 API Integration']
+      },
+      {
+        name: 'Computer vision and document AI',
+        skills: ['OCR', 'Intelligent Document Processing', 'CNN', 'ResNet', 'Vision Transformer', 'DINO', 'Table Structure Detection', 'Document Classification', 'Form Data Extraction']
+      },
+      {
+        name: 'Generative and advanced AI',
+        skills: ['Generative AI', 'Variational Autoencoders', 'Diffusion Models', 'Graph Neural Networks', 'Vision-Language-Action Models', 'Digital Signal Processing']
+      },
+      {
+        name: 'Data engineering and storage',
+        skills: ['PySpark', 'Data Pipelines', 'Selenium', 'BeautifulSoup', 'SQLite', 'MySQL', 'MongoDB']
+      },
+      {
+        name: 'Visualization and workflow',
+        skills: ['Plotly', 'Matplotlib', 'Git', 'GitHub', 'Linux']
+      }
+    ],
+    education: [
+      {
+        degree: "Master's Degree in Applied Statistics and Data Science",
+        institution: 'Yerevan State University',
+        period: '2023 - 2025',
+        location: 'Department of Mathematics and Mechanics'
+      },
+      {
+        degree: "Master's Degree in Corporate Finance",
+        institution: 'Armenian State University of Economics',
+        period: '2016 - 2018',
+        location: 'Financial Department'
+      },
+      {
+        degree: "Bachelor's Degree in Finance",
+        institution: 'Armenian State University of Economics',
+        period: '2013 - 2016',
+        location: 'Financial Department'
+      },
+      {
+        degree: 'Informational System Management studies',
+        institution: 'Armenian State University of Economics',
+        period: '2008 - 2010',
+        location: 'Informational and Statistical Department'
+      }
+    ],
+    training: [
+      {
+        program: 'Armenia LLM Summer School 2026 - ArmLLM',
+        institution: 'AI9 Startup Campus, Yerevan',
+        period: 'August 2026',
+        skills: ['LLM Pre-training', 'Scaling Laws', 'Mixture-of-Experts', 'Supervised Fine-tuning', 'Reinforcement Learning', 'Test-time Scaling', 'Agents', 'Reasoning Workflows', 'Vision-Language-Action Models']
+      },
+      {
+        program: 'AI Engineer Core Track',
+        institution: 'Udemy',
+        period: '2026',
+        skills: ['LLM Engineering', 'RAG', 'QLoRA', 'AI Agents', 'Vector Databases', 'Model Fine-tuning', 'Gradio Deployment']
+      },
+      {
+        program: 'Fundamentals of Deep Learning',
+        institution: 'NVIDIA Deep Learning Institute',
+        period: 'June 2022'
+      },
+      {
+        program: 'Machine Learning Intermediate',
+        institution: 'Armenian Code Academy / Ministry of High Tech Industry of Armenia',
+        period: 'October 2021 - March 2022'
+      },
+      {
+        program: 'Machine Learning',
+        institution: 'Armenian Code Academy / Ministry of High Tech Industry of Armenia',
+        period: 'December 2020 - March 2021'
+      },
+      {
+        program: 'Advanced Python',
+        institution: 'Armenian Code Academy',
+        period: 'March 2020 - July 2020'
+      },
+      {
+        program: 'Introduction to Python',
+        institution: 'Armenian Code Academy',
+        period: 'November 2019 - January 2020'
+      }
+    ],
+    languages: ['Armenian', 'English', 'Russian'],
+    linkedin: 'https://www.linkedin.com/in/hayk-sahakyan-021471138',
+    cvUrl: '/resumes/hayk-sahakyan-cv.pdf',
+    resumeLabel: 'Download CV'
+  },
 ]
